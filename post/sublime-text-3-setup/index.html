@@ -1,0 +1,981 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Sublime Text," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title=":wq akenzc/blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="最近一段时间暂时切换到了 Windows，好多年没用 Windows 的我居然找不到一款趁手的代码编辑器，尝试配置 Gvim，但被搞的死去活来都无法配的和在 OSX 上一样。
+突然想起了以前试用过的 Sublime Text，简单的配置了一下居然就好用的不得了，好吧，Windows 下写东西就靠你了。
+在此简单的记录一下 Sublime Text 3 的配置，各个平台上使用基本一样，全平台统一体验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime Text 3 环境配置">
+<meta property="og:url" content="http://akenzc.com/post/sublime-text-3-setup/index.html">
+<meta property="og:site_name" content=":wq akenzc/blog">
+<meta property="og:description" content="最近一段时间暂时切换到了 Windows，好多年没用 Windows 的我居然找不到一款趁手的代码编辑器，尝试配置 Gvim，但被搞的死去活来都无法配的和在 OSX 上一样。
+突然想起了以前试用过的 Sublime Text，简单的配置了一下居然就好用的不得了，好吧，Windows 下写东西就靠你了。
+在此简单的记录一下 Sublime Text 3 的配置，各个平台上使用基本一样，全平台统一体验">
+<meta property="og:updated_time" content="2015-07-07T15:25:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime Text 3 环境配置">
+<meta name="twitter:description" content="最近一段时间暂时切换到了 Windows，好多年没用 Windows 的我居然找不到一款趁手的代码编辑器，尝试配置 Gvim，但被搞的死去活来都无法配的和在 OSX 上一样。
+突然想起了以前试用过的 Sublime Text，简单的配置了一下居然就好用的不得了，好吧，Windows 下写东西就靠你了。
+在此简单的记录一下 Sublime Text 3 的配置，各个平台上使用基本一样，全平台统一体验">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://akenzc.com/post/sublime-text-3-setup/"/>
+
+  <title> Sublime Text 3 环境配置 | :wq akenzc/blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-80024212-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">:wq akenzc/blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Create something</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sublime Text 3 环境配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-07-07T23:25:00+08:00" content="2015-07-07">
+              2015-07-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/sublime-text-3-setup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/sublime-text-3-setup/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/post/sublime-text-3-setup/" class="leancloud_visitors" data-flag-title="Sublime Text 3 环境配置">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近一段时间暂时切换到了 Windows，好多年没用 Windows 的我居然找不到一款趁手的代码编辑器，尝试配置 Gvim，但被搞的死去活来都无法配的和在 OSX 上一样。</p>
+<p>突然想起了以前试用过的 Sublime Text，简单的配置了一下居然就好用的不得了，好吧，Windows 下写东西就靠你了。</p>
+<p>在此简单的记录一下 Sublime Text 3 的配置，各个平台上使用基本一样，全平台统一体验的感觉真棒。</p>
+<a id="more"></a>
+<h2 id="安装-Sublime-Text-3"><a href="#安装-Sublime-Text-3" class="headerlink" title="安装 Sublime Text 3"></a>安装 Sublime Text 3</h2><p>Sublime Text 2 从 2013 年 7 月开始就不再更新，很多插件也放弃了对老版本的支持。所以虽然 Sublime Text 3 还是 Beta 版，但已经非常稳定了，并且一些新特性只有新版本才有。不用想，直接选择 Sublime Text 3。</p>
+<p>在这里下载 <a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3</a></p>
+<h2 id="Package-Control"><a href="#Package-Control" class="headerlink" title="Package Control"></a>Package Control</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>Package Control 是一切插件的安装入口，所以首先要把他给安装好，很不理解为什么 Sublime Text 不把 Package Control 给集成进来。</p>
+<p><a href="https://packagecontrol.io/" target="_blank" rel="external">Package Control</a> 的官网上有安装方法和文档可供参考。</p>
+<p>使用快捷键 ctrl + ` 或通过菜单选项 View -&gt; Show Console 进入控制台 Console，然后粘贴如下代码，回车运行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os,hashlib; h = <span class="string">'eb2297e1a458f27d836c04bb0cbaf282'</span> + <span class="string">'d0e7a3098092775ccb37ca9d6b2e4b7d'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>通过 Ctrl + Shift + p 进入 Command Palette， 输入 <code>Package Contorl: Install Package</code> 或简写为 <code>ip</code>， 敲回车进入插件的搜索窗口。输入需要安装的插件的关键字后，回车等待即可完成安装，安装状态在最下面的状态栏内会有文字提示。</p>
+<h2 id="Plug-in-安装"><a href="#Plug-in-安装" class="headerlink" title="Plug-in 安装"></a>Plug-in 安装</h2><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>搜索 <code>Soda SolarizedDark</code> 并安装，安装成功后在 preferences -&gt; Color Scheme 中填写配色 <code>Solarized</code>。</p>
+<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>在 OSX 中使用 Monaco 字体，系统自带。<br>在 Windows 中使用 YaHei Consolas Hybrid 字体。</p>
+<h3 id="SideBarEnhancements"><a href="#SideBarEnhancements" class="headerlink" title="SideBarEnhancements"></a>SideBarEnhancements</h3><p>增加 SideBar 右键菜单的功能</p>
+<h3 id="SublimeLinter"><a href="#SublimeLinter" class="headerlink" title="SublimeLinter"></a>SublimeLinter</h3><p>sublimeLinter提供代码检测、语法检查的框架，支持多种语言。<br><a href="http://www.sublimelinter.com/en/latest/index.html" target="_blank" rel="external">官方文档</a><br><a href="https://github.com/SublimeLinter/SublimeLinter" target="_blank" rel="external">Github 地址</a></p>
+<p>注意，安装完后，还需要安装一些 linter 才能用，建议安装：</p>
+<ul>
+<li>SublimeLinter-pyflakes</li>
+<li>SublimeLinter-pep8</li>
+<li>SublimeLinter-jshint</li>
+<li>SublimeLinter-pyyaml</li>
+<li>SublimeLinter-csslint</li>
+<li>SublimeLinter-html-tidy</li>
+<li>SublimeLinter-json</li>
+</ul>
+<p>所有的提示器可能都会有依赖关系，所以安装后请阅读安装文档。</p>
+<h3 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h3><p>All-in-One 的 Python 开发环境插件。包括了 PyFlakes、PEP8、McCabe、Pylinter 等。<br>打开 Preferences -&gt; Package Settings -&gt; Anaconda -&gt; Settings - User，并添加：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="regexp">//</span><span class="string">"python_interpreter"</span>: <span class="string">"C:\\Python27\\python.exe"</span>,</span><br><span class="line">    <span class="string">"python_interpreter"</span>: <span class="string">"/usr/local/bin/python"</span>,</span><br><span class="line">    <span class="string">"auto_python_builder_enabled"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="regexp">//</span> 因为使用 SublimeLinter，所以禁用 Anaconda 的 linting 工具。</span><br><span class="line">    <span class="string">"anaconda_linting"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="regexp">//</span> 增加对象的点操作符时的自动提示</span><br><span class="line">    <span class="string">"auto_complete_triggers"</span>: [&#123;<span class="string">"selector"</span>: <span class="string">"source.python - string - comment - constant.numeric"</span>, <span class="string">"characters"</span>: <span class="string">"."</span>&#125;],</span><br><span class="line">    <span class="regexp">//</span> 增加括号操作符后的参数自动完成</span><br><span class="line">    <span class="string">"suppress_word_completions"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="string">"suppress_explicit_completions"</span>: <span class="keyword">true</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Djaneiro"><a href="#Djaneiro" class="headerlink" title="Djaneiro"></a>Djaneiro</h3><p>Djaneiro 支持 Django 模版和关键字高亮以及许多实用的代码片(snippets)功能。</p>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>把Git常用命令加入 Command Palette，方便管理代码。</p>
+<h3 id="GitGutter"><a href="#GitGutter" class="headerlink" title="GitGutter"></a>GitGutter</h3><p>在修改后的文件行号前增加一些标识图片，方便与对比版本库对比。</p>
+<h3 id="ConverToUTF8"><a href="#ConverToUTF8" class="headerlink" title="ConverToUTF8"></a>ConverToUTF8</h3><p>解决Windows下乱码</p>
+<h3 id="Codecs33"><a href="#Codecs33" class="headerlink" title="Codecs33"></a>Codecs33</h3><p>解决OSX、Linux下乱码</p>
+<h3 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h3><p>HTML、CSS 必备</p>
+<h3 id="Vintageous"><a href="#Vintageous" class="headerlink" title="Vintageous"></a>Vintageous</h3><p>一个Vintage变种，Vintageous 提供了更好的Vi编辑体验而且比Vintage更新更频繁。 Vintageous 是一个开源项目。</p>
+<h3 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a>Markdown Preview</h3><p>用来预览和编译 markdown 文件。</p>
+<h3 id="Markdown-Extended"><a href="#Markdown-Extended" class="headerlink" title="Markdown Extended"></a>Markdown Extended</h3><p>高亮 Markdown 文件。</p>
+<h3 id="SFTP"><a href="#SFTP" class="headerlink" title="SFTP"></a>SFTP</h3><p>用来编辑和同步远程服务器上的文件。</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>在菜单栏选择Preferences -&gt; Setting-User，会打开一个配置文件，可以在这里配置主题、字体、缩进、插件等，该文件使用JSON格式。</p>
+<p>配置文件修改后保存会立即生效，不需要重启。下面是我的配置文件:<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"Theme"</span>: <span class="string">"Soda SolarizedDark.sublime-theme"</span>,</span><br><span class="line">    <span class="string">"color_scheme"</span>: <span class="string">"Packages/User/SublimeLinter/Solarized (Dark) (SL).tmTheme"</span>,</span><br><span class="line">    <span class="string">"default_encoding"</span>: <span class="string">"UTF-8"</span>,</span><br><span class="line">    <span class="string">"default_line_ending"</span>: <span class="string">"unix"</span>,</span><br><span class="line">    <span class="string">"draw_white_space"</span>: <span class="string">"all"</span>,</span><br><span class="line">    <span class="string">"ensure_newline_at_eof_on_save"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"file_exclude_patterns"</span>:</span><br><span class="line">    [</span><br><span class="line">        <span class="string">".DS_Store"</span>,</span><br><span class="line">        <span class="string">"*.pid"</span>,</span><br><span class="line">        <span class="string">"*.pyc"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"fold_buttons"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"folder_exclude_patterns"</span>:</span><br><span class="line">    [</span><br><span class="line">        <span class="string">".git"</span>,</span><br><span class="line">        <span class="string">"__pycache__"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"font_face"</span>: <span class="string">"Monaco"</span>,</span><br><span class="line">    <span class="string">"font_size"</span>: <span class="number">13</span>,</span><br><span class="line">    // <span class="string">"font_face"</span>: <span class="string">"YaHei Consolas Hybrid"</span>,</span><br><span class="line">    // <span class="string">"font_size"</span>: <span class="number">11</span>,</span><br><span class="line">    <span class="string">"highlight_line"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"ignored_packages"</span>:</span><br><span class="line">    [</span><br><span class="line">        <span class="string">"Vintage"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"rulers"</span>:</span><br><span class="line">    [</span><br><span class="line">        <span class="number">80</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"save_on_focus_lost"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"tab_size"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"theme"</span>: <span class="string">"Soda SolarizedDark.sublime-theme"</span>,</span><br><span class="line">    <span class="string">"translate_tabs_to_spaces"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"trim_trailing_white_space_on_save"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"vintageous_use_ctrl_keys"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"word_wrap"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><h3 id="Sidebar-字体模糊"><a href="#Sidebar-字体模糊" class="headerlink" title="Sidebar 字体模糊"></a>Sidebar 字体模糊</h3><p>Windows 下，安装了 Soda Solarized 主题后，Sidebar的字会变的很模糊，这是因为主题的字体加了阴影，把阴影取消即可。<br>首先搜索并安装 <code>PackageResourceViewer</code>，装好后，打开 Command Palette 输入 <code>PackageResourceViewer: Open Resource</code>，选择 <code>Soda SolarizedDark.sublime-theme</code> 打开文件。<br>文件内搜索 <code>sidebar_label</code>，把 <code>shadow_offset</code> 都设置为 <code>[0, 0]</code>，然后在第一个 <code>Sidebar_label</code> 后面添加 <code>&quot;font.face&quot;: &quot;YaHei Consolas Hybrid&quot;,</code> 和 <code>&quot;font.size&quot;: 13,</code>，具体字体和字号可以根据实际情况微调。<br>如果觉得行间距太小，可以搜索 <code>sidebartree</code>，调一下里边的 <code>rowpadding</code> 配置即可。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Sublime-Text/" rel="tag">#Sublime Text</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/windows-8.1-installation-guide/" rel="next" title="Windows 8.1 安装备忘">
+                <i class="fa fa-chevron-left"></i> Windows 8.1 安装备忘
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/2015-Skylake-NUC/" rel="prev" title="2015 Skylake NUC">
+                2015 Skylake NUC <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Chi Zhang" />
+          <p class="site-author-name" itemprop="name">Chi Zhang</p>
+          <p class="site-description motion-element" itemprop="description">hehehe</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/akenzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/akenzc" target="_blank" title="Twiter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Twiter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Sublime-Text-3"><span class="nav-number">1.</span> <span class="nav-text">安装 Sublime Text 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Package-Control"><span class="nav-number">2.</span> <span class="nav-text">Package Control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plug-in-安装"><span class="nav-number">3.</span> <span class="nav-text">Plug-in 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主题"><span class="nav-number">3.1.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体"><span class="nav-number">3.2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SideBarEnhancements"><span class="nav-number">3.3.</span> <span class="nav-text">SideBarEnhancements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SublimeLinter"><span class="nav-number">3.4.</span> <span class="nav-text">SublimeLinter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anaconda"><span class="nav-number">3.5.</span> <span class="nav-text">Anaconda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Djaneiro"><span class="nav-number">3.6.</span> <span class="nav-text">Djaneiro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git"><span class="nav-number">3.7.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitGutter"><span class="nav-number">3.8.</span> <span class="nav-text">GitGutter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConverToUTF8"><span class="nav-number">3.9.</span> <span class="nav-text">ConverToUTF8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Codecs33"><span class="nav-number">3.10.</span> <span class="nav-text">Codecs33</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emmet"><span class="nav-number">3.11.</span> <span class="nav-text">Emmet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vintageous"><span class="nav-number">3.12.</span> <span class="nav-text">Vintageous</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-Preview"><span class="nav-number">3.13.</span> <span class="nav-text">Markdown Preview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-Extended"><span class="nav-number">3.14.</span> <span class="nav-text">Markdown Extended</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SFTP"><span class="nav-number">3.15.</span> <span class="nav-text">SFTP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件"><span class="nav-number">4.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些问题"><span class="nav-number">5.</span> <span class="nav-text">一些问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sidebar-字体模糊"><span class="nav-number">5.1.</span> <span class="nav-text">Sidebar 字体模糊</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2010 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chi Zhang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'akenblog';
+      var disqus_identifier = 'post/sublime-text-3-setup/';
+      var disqus_title = "Sublime Text 3 环境配置";
+      var disqus_url = 'http://akenzc.com/post/sublime-text-3-setup/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7SW0u1Q3jqgcfJE6KvrmJi5J-gzGzoHsz", "t1a0dX3tIIYOyRL1EI6vhh1v");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[Surge 和 1Password 快捷键失效]]></title>
+      <url>http://akenzc.com/post/Surge-and-1Password-shortcuts/</url>
+      <content type="html"><![CDATA[<p>安装 Surge for Mac 后，1Password 提示浏览器未签名，并且 1Password 的 Chrome 浏览器插件不能使用快捷键填充。<br>解决办法：</p>
+<ol>
+<li>系统代理设置中，Bypass 加入 <code>localhost</code> 和 <code>127.0.0.1</code></li>
+<li>Surge 1.2.0 版本加入 <code>Set as System Proxy</code> 选项，会使用配置文件中的 <code>skip-proxy</code> 参数去覆盖系统的 bypass 设置，在该参数中加入 <code>localhost</code> 和 <code>127.0.0.1</code> 即可。</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[2015 Skylake NUC]]></title>
+      <url>http://akenzc.com/post/2015-Skylake-NUC/</url>
+      <content type="html"><![CDATA[<p><img src="/images/2015nuc.jpg" alt=""><br>有些东西用惯了大的，就再不想用小的，比如显示器。<br>有些东西用惯了小的，就再也用不回大的，比如NUC。<br>NUC是这两年PC市场上最令我兴奋的（或许是我唯一感兴趣的）产品，因为他足够的小，小到可以优雅的完成我想要的各种任务，比如下载机，比如NAS，比如HTPC，或是一台传统的PC机。<br>今年，搭载了第六代酷睿处理器的2015款NUC又有了小幅进化。</p>
+<a id="more"></a>
+<h3 id="Skylake-NUC-vs-Broadwell-NUC"><a href="#Skylake-NUC-vs-Broadwell-NUC" class="headerlink" title="Skylake NUC vs Broadwell NUC"></a>Skylake NUC vs Broadwell NUC</h3><h4 id="外观升级"><a href="#外观升级" class="headerlink" title="外观升级"></a>外观升级</h4><p>从外观上来看今年的Skylake NUC和去年的Broadwell NUC除了几个I/O接口之外，并没有非常大的改变。<br>侧面新增了一个SDXC读卡器，背面的mini HDMI也换成了全尺寸的HDMI，免去了专门准备一根少见的mini HDMI线的烦恼。HDMI的规格也从1.4a升级到了1.4b，其实也就是增加了对3D 1080p 120Hz的支持。<br>其他和去年的NUC并没有任何区别，DP依然是1.2，USB依然是3.0。</p>
+<h4 id="内部升级"><a href="#内部升级" class="headerlink" title="内部升级"></a>内部升级</h4><h5 id="CPU-amp-GPU"><a href="#CPU-amp-GPU" class="headerlink" title="CPU &amp; GPU"></a>CPU &amp; GPU</h5><p>最大的升级就是换成了最新的Skylake Core处理器了。</p>
+<ul>
+<li>CPU：Core i3-6100U / GPU：HD Graphics 520</li>
+<li>CPU：Core i5-6260U / GPU：Iris Graphics 540</li>
+</ul>
+<p>当然，我不是跑分党，我只能说，这个性能对于不在电脑上玩游戏的我来说是绝对够用了。<br>如果需要播放电影，Skylake支持完整的8bit 4k HEVC硬解码，不支持超高清蓝光的10bit硬解码是个很大的遗憾（想要10bit解码，只能等到2016年的KebyLake了），但是近几年内的主流视频格式通吃应该是没问题的。</p>
+<h5 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h5><p>终于进化到了DDR4的时代，NUC标配两根DDR4-2133的插槽，最大支持32GB RAM。</p>
+<h5 id="无线网卡"><a href="#无线网卡" class="headerlink" title="无线网卡"></a>无线网卡</h5><p>无线网卡芯片升级到了Wireless-AC 8260，和上代相比只是把蓝牙从4.0升级到了4.1，Wifi性能没有什么改进，依然是MIMO 2x2的AC1200。</p>
+<h3 id="一些遗憾"><a href="#一些遗憾" class="headerlink" title="一些遗憾"></a>一些遗憾</h3><ul>
+<li>不支持USB 3.1</li>
+<li>M.2不支持Pci-e 3.0</li>
+<li>不支持HDMI 2.0</li>
+<li>不支持DP 1.2a</li>
+</ul>
+<p>不支持HDMI 2.0真心是硬伤啊，只能要么HDMI连电视当HTPC，要么DP连电脑当PC了。<br>完美的东西不可求，我应该会买一个NUC6i5SYH半高版拿来装Windows 10，期待下个月上市。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Sublime Text 3 环境配置]]></title>
+      <url>http://akenzc.com/post/sublime-text-3-setup/</url>
+      <content type="html"><![CDATA[<p>最近一段时间暂时切换到了 Windows，好多年没用 Windows 的我居然找不到一款趁手的代码编辑器，尝试配置 Gvim，但被搞的死去活来都无法配的和在 OSX 上一样。</p>
+<p>突然想起了以前试用过的 Sublime Text，简单的配置了一下居然就好用的不得了，好吧，Windows 下写东西就靠你了。</p>
+<p>在此简单的记录一下 Sublime Text 3 的配置，各个平台上使用基本一样，全平台统一体验的感觉真棒。</p>
+<a id="more"></a>
+<h2 id="安装-Sublime-Text-3"><a href="#安装-Sublime-Text-3" class="headerlink" title="安装 Sublime Text 3"></a>安装 Sublime Text 3</h2><p>Sublime Text 2 从 2013 年 7 月开始就不再更新，很多插件也放弃了对老版本的支持。所以虽然 Sublime Text 3 还是 Beta 版，但已经非常稳定了，并且一些新特性只有新版本才有。不用想，直接选择 Sublime Text 3。</p>
+<p>在这里下载 <a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3</a></p>
+<h2 id="Package-Control"><a href="#Package-Control" class="headerlink" title="Package Control"></a>Package Control</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>Package Control 是一切插件的安装入口，所以首先要把他给安装好，很不理解为什么 Sublime Text 不把 Package Control 给集成进来。</p>
+<p><a href="https://packagecontrol.io/" target="_blank" rel="external">Package Control</a> 的官网上有安装方法和文档可供参考。</p>
+<p>使用快捷键 ctrl + ` 或通过菜单选项 View -&gt; Show Console 进入控制台 Console，然后粘贴如下代码，回车运行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os,hashlib; h = <span class="string">'eb2297e1a458f27d836c04bb0cbaf282'</span> + <span class="string">'d0e7a3098092775ccb37ca9d6b2e4b7d'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>通过 Ctrl + Shift + p 进入 Command Palette， 输入 <code>Package Contorl: Install Package</code> 或简写为 <code>ip</code>， 敲回车进入插件的搜索窗口。输入需要安装的插件的关键字后，回车等待即可完成安装，安装状态在最下面的状态栏内会有文字提示。</p>
+<h2 id="Plug-in-安装"><a href="#Plug-in-安装" class="headerlink" title="Plug-in 安装"></a>Plug-in 安装</h2><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>搜索 <code>Soda SolarizedDark</code> 并安装，安装成功后在 preferences -&gt; Color Scheme 中填写配色 <code>Solarized</code>。</p>
+<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>在 OSX 中使用 Monaco 字体，系统自带。<br>在 Windows 中使用 YaHei Consolas Hybrid 字体。</p>
+<h3 id="SideBarEnhancements"><a href="#SideBarEnhancements" class="headerlink" title="SideBarEnhancements"></a>SideBarEnhancements</h3><p>增加 SideBar 右键菜单的功能</p>
+<h3 id="SublimeLinter"><a href="#SublimeLinter" class="headerlink" title="SublimeLinter"></a>SublimeLinter</h3><p>sublimeLinter提供代码检测、语法检查的框架，支持多种语言。<br><a href="http://www.sublimelinter.com/en/latest/index.html" target="_blank" rel="external">官方文档</a><br><a href="https://github.com/SublimeLinter/SublimeLinter" target="_blank" rel="external">Github 地址</a></p>
+<p>注意，安装完后，还需要安装一些 linter 才能用，建议安装：</p>
+<ul>
+<li>SublimeLinter-pyflakes</li>
+<li>SublimeLinter-pep8</li>
+<li>SublimeLinter-jshint</li>
+<li>SublimeLinter-pyyaml</li>
+<li>SublimeLinter-csslint</li>
+<li>SublimeLinter-html-tidy</li>
+<li>SublimeLinter-json</li>
+</ul>
+<p>所有的提示器可能都会有依赖关系，所以安装后请阅读安装文档。</p>
+<h3 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h3><p>All-in-One 的 Python 开发环境插件。包括了 PyFlakes、PEP8、McCabe、Pylinter 等。<br>打开 Preferences -&gt; Package Settings -&gt; Anaconda -&gt; Settings - User，并添加：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="regexp">//</span><span class="string">"python_interpreter"</span>: <span class="string">"C:\\Python27\\python.exe"</span>,</span><br><span class="line">    <span class="string">"python_interpreter"</span>: <span class="string">"/usr/local/bin/python"</span>,</span><br><span class="line">    <span class="string">"auto_python_builder_enabled"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="regexp">//</span> 因为使用 SublimeLinter，所以禁用 Anaconda 的 linting 工具。</span><br><span class="line">    <span class="string">"anaconda_linting"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="regexp">//</span> 增加对象的点操作符时的自动提示</span><br><span class="line">    <span class="string">"auto_complete_triggers"</span>: [&#123;<span class="string">"selector"</span>: <span class="string">"source.python - string - comment - constant.numeric"</span>, <span class="string">"characters"</span>: <span class="string">"."</span>&#125;],</span><br><span class="line">    <span class="regexp">//</span> 增加括号操作符后的参数自动完成</span><br><span class="line">    <span class="string">"suppress_word_completions"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="string">"suppress_explicit_completions"</span>: <span class="keyword">true</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Djaneiro"><a href="#Djaneiro" class="headerlink" title="Djaneiro"></a>Djaneiro</h3><p>Djaneiro 支持 Django 模版和关键字高亮以及许多实用的代码片(snippets)功能。</p>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>把Git常用命令加入 Command Palette，方便管理代码。</p>
+<h3 id="GitGutter"><a href="#GitGutter" class="headerlink" title="GitGutter"></a>GitGutter</h3><p>在修改后的文件行号前增加一些标识图片，方便与对比版本库对比。</p>
+<h3 id="ConverToUTF8"><a href="#ConverToUTF8" class="headerlink" title="ConverToUTF8"></a>ConverToUTF8</h3><p>解决Windows下乱码</p>
+<h3 id="Codecs33"><a href="#Codecs33" class="headerlink" title="Codecs33"></a>Codecs33</h3><p>解决OSX、Linux下乱码</p>
+<h3 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h3><p>HTML、CSS 必备</p>
+<h3 id="Vintageous"><a href="#Vintageous" class="headerlink" title="Vintageous"></a>Vintageous</h3><p>一个Vintage变种，Vintageous 提供了更好的Vi编辑体验而且比Vintage更新更频繁。 Vintageous 是一个开源项目。</p>
+<h3 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a>Markdown Preview</h3><p>用来预览和编译 markdown 文件。</p>
+<h3 id="Markdown-Extended"><a href="#Markdown-Extended" class="headerlink" title="Markdown Extended"></a>Markdown Extended</h3><p>高亮 Markdown 文件。</p>
+<h3 id="SFTP"><a href="#SFTP" class="headerlink" title="SFTP"></a>SFTP</h3><p>用来编辑和同步远程服务器上的文件。</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>在菜单栏选择Preferences -&gt; Setting-User，会打开一个配置文件，可以在这里配置主题、字体、缩进、插件等，该文件使用JSON格式。</p>
+<p>配置文件修改后保存会立即生效，不需要重启。下面是我的配置文件:<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"Theme"</span>: <span class="string">"Soda SolarizedDark.sublime-theme"</span>,</span><br><span class="line">    <span class="string">"color_scheme"</span>: <span class="string">"Packages/User/SublimeLinter/Solarized (Dark) (SL).tmTheme"</span>,</span><br><span class="line">    <span class="string">"default_encoding"</span>: <span class="string">"UTF-8"</span>,</span><br><span class="line">    <span class="string">"default_line_ending"</span>: <span class="string">"unix"</span>,</span><br><span class="line">    <span class="string">"draw_white_space"</span>: <span class="string">"all"</span>,</span><br><span class="line">    <span class="string">"ensure_newline_at_eof_on_save"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"file_exclude_patterns"</span>:</span><br><span class="line">    [</span><br><span class="line">        <span class="string">".DS_Store"</span>,</span><br><span class="line">        <span class="string">"*.pid"</span>,</span><br><span class="line">        <span class="string">"*.pyc"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"fold_buttons"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"folder_exclude_patterns"</span>:</span><br><span class="line">    [</span><br><span class="line">        <span class="string">".git"</span>,</span><br><span class="line">        <span class="string">"__pycache__"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"font_face"</span>: <span class="string">"Monaco"</span>,</span><br><span class="line">    <span class="string">"font_size"</span>: <span class="number">13</span>,</span><br><span class="line">    // <span class="string">"font_face"</span>: <span class="string">"YaHei Consolas Hybrid"</span>,</span><br><span class="line">    // <span class="string">"font_size"</span>: <span class="number">11</span>,</span><br><span class="line">    <span class="string">"highlight_line"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"ignored_packages"</span>:</span><br><span class="line">    [</span><br><span class="line">        <span class="string">"Vintage"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"rulers"</span>:</span><br><span class="line">    [</span><br><span class="line">        <span class="number">80</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"save_on_focus_lost"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"tab_size"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"theme"</span>: <span class="string">"Soda SolarizedDark.sublime-theme"</span>,</span><br><span class="line">    <span class="string">"translate_tabs_to_spaces"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"trim_trailing_white_space_on_save"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"vintageous_use_ctrl_keys"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"word_wrap"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><h3 id="Sidebar-字体模糊"><a href="#Sidebar-字体模糊" class="headerlink" title="Sidebar 字体模糊"></a>Sidebar 字体模糊</h3><p>Windows 下，安装了 Soda Solarized 主题后，Sidebar的字会变的很模糊，这是因为主题的字体加了阴影，把阴影取消即可。<br>首先搜索并安装 <code>PackageResourceViewer</code>，装好后，打开 Command Palette 输入 <code>PackageResourceViewer: Open Resource</code>，选择 <code>Soda SolarizedDark.sublime-theme</code> 打开文件。<br>文件内搜索 <code>sidebar_label</code>，把 <code>shadow_offset</code> 都设置为 <code>[0, 0]</code>，然后在第一个 <code>Sidebar_label</code> 后面添加 <code>&quot;font.face&quot;: &quot;YaHei Consolas Hybrid&quot;,</code> 和 <code>&quot;font.size&quot;: 13,</code>，具体字体和字号可以根据实际情况微调。<br>如果觉得行间距太小，可以搜索 <code>sidebartree</code>，调一下里边的 <code>rowpadding</code> 配置即可。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Windows 8.1 安装备忘]]></title>
+      <url>http://akenzc.com/post/windows-8.1-installation-guide/</url>
+      <content type="html"><![CDATA[<p>跟别人说我不是修电脑的别人不信，跟别人说我已经好几年都不用 Windows 操作系统，现在已经不会装系统了，别人也不信，于是只能苦哈哈的帮别人装系统。<br>网上看了一下，现在的 Windows 系统安装真是比以前简单太多了，但还是记录一下，省的以后啥时候再用上。<br>我真的不是修电脑的啊。。。</p>
+<a id="more"></a>
+<h2 id="1-准备文件"><a href="#1-准备文件" class="headerlink" title="1. 准备文件"></a>1. 准备文件</h2><h3 id="1-1-windows-8-1-ISO"><a href="#1-1-windows-8-1-ISO" class="headerlink" title="1.1 windows 8.1 ISO"></a>1.1 windows 8.1 ISO</h3><blockquote>
+<p>Windows 8.1 64位 专业版<br>文件名：cn_windows_8_1_pro_vl_x64_dvd_2971907.iso<br>语言：简体中文<br>文件说明：微软官方正式版原版<br>发布日期：2013/10/17<br>文件大小：3.76GB<br>SHA1：62711AD210B7872A30C1CE188A60724CEB4D606B<br>下载地址：<a href="ed2k://%7Cfile%7Ccn_windows_8_1_pro_vl_x64_dvd_2971907.iso%7C4032598016%7C1FDA520B3E8880E2FB00B20439E0826E%7C/" target="_blank" rel="external">cn_windows_8_1_pro_vl_x64_dvd_2971907.iso</a></p>
+</blockquote>
+<h3 id="1-2-Windows-7-USB-DVD-tool"><a href="#1-2-Windows-7-USB-DVD-tool" class="headerlink" title="1.2 Windows 7 USB/DVD tool"></a>1.2 Windows 7 USB/DVD tool</h3><p>下载微软官方安装U盘制作工具 Windows 7 USB/DVD download tool。<br>官方没有出 Only for Win8 的U盘制作工具，这个虽然写着 Windows 7，但也兼容 Windows 8。</p>
+<blockquote>
+<p>下载地址：<a href="http://images2.store.microsoft.com/prod/clustera/framework/w7udt/1.0/en-us/Windows7-USB-DVD-tool.exe" target="_blank" rel="external">Windows7-USB-DVD-tool.exe</a></p>
+</blockquote>
+<h2 id="2-制作启动U盘"><a href="#2-制作启动U盘" class="headerlink" title="2. 制作启动U盘"></a>2. 制作启动U盘</h2><p>因为 Windows 8.1 系统大小超过 4GB，所以必须准备 8G 或更大容量的U盘。<br>制作方法可以参考<a href="http://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool" target="_blank" rel="external">官方指导</a><br>打开 <code>Windows7-USB-DVD-tool.exe</code>，制作启动盘只需要四步。</p>
+<blockquote>
+<p>Step 1，Choose ISO file，选择ISO文件。<br>Step 2，Choose media type，选择制作的媒体类型 <code>USB Device</code>。<br>Step 3，Insert USB device，选取需要制作的U盘，点击<code>Begin copying</code>。<br>Step 4，Create bootable USB device，等待进度条完成，关闭窗口，启动盘就做好了。</p>
+</blockquote>
+<h2 id="3-安装系统"><a href="#3-安装系统" class="headerlink" title="3. 安装系统"></a>3. 安装系统</h2><p>以下安装方法基于 INTEL NUC5i3RYH，如需在其他机器上安装，除了驱动之外应该基本相同。</p>
+<h3 id="3-1-系统安装"><a href="#3-1-系统安装" class="headerlink" title="3.1 系统安装"></a>3.1 系统安装</h3><blockquote>
+<ol>
+<li>启动电脑，设置 UEFI U盘引导。</li>
+<li>引导成功后即进入安装界面。</li>
+<li>选择语言、时区、输入法等。</li>
+<li>输入 Windows 8.1 专业版的安装KEY：<code>XHQ8N-C3MCJ-RQXB6-WCHYG-C9WKB</code>。</li>
+<li>全新安装，所以选择下面的<code>自定义：仅安装 Windows (高级)</code>。</li>
+<li>分区及格式化，建议直接全盘只划分一个区，Windows 8系统不需要多个分区来防止系统崩溃。</li>
+<li>继续安装，直到完成。</li>
+</ol>
+</blockquote>
+<h3 id="3-2-激活"><a href="#3-2-激活" class="headerlink" title="3.2 激活"></a>3.2 激活</h3><p>虽然我自己买了 Windows 7 和 Windows 8 的 License，但是帮别人装机时，说服别人购买正版的 License 是很困难的，所以只能想办法激活。<br>这里不介绍如何激活，有兴趣可以去搜索<strong><a href="http://www.heu8.com/846.html" target="_blank" rel="external">HEU KMS Activator</a></strong>看看。</p>
+<h3 id="3-3-驱动安装"><a href="#3-3-驱动安装" class="headerlink" title="3.3 驱动安装"></a>3.3 驱动安装</h3><p>NUC 的驱动安装很简单，去下载<a href="http://www.intel.com/p/zh_CN/support/detect" target="_blank" rel="external">英特尔® 驱动程序更新实用程序</a>，安装后会自动把驱动装好。</p>
+<h2 id="4-安装后续"><a href="#4-安装后续" class="headerlink" title="4. 安装后续"></a>4. 安装后续</h2><h3 id="4-1-4k对齐"><a href="#4-1-4k对齐" class="headerlink" title="4.1 4k对齐"></a>4.1 4k对齐</h3><p>4k不对齐确实很影响磁盘性能，但是新盘安装，使用 Windows 自带的分区格式化工具，一般都会 4k 对齐的。<br>如果实在不放心，可以下载安装<a href="http://alex-is.de/PHP/fusion/downloads.php?cat_id=4&amp;download_id=9" target="_blank" rel="external">AS SSD Benchmark</a>。<br>打开后，左上角选择要查看的分区，如果有<code>XXXX K-OK</code>字样则说明以对齐，如果是<code>XXXX K-BAD</code>字样则说明该分区没有对齐。所有分区对齐才是真的对齐。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Archlinux 安装备忘]]></title>
+      <url>http://akenzc.com/post/archlinux-installation-guide/</url>
+      <content type="html"><![CDATA[<h1 id="1-制作启动U盘"><a href="#1-制作启动U盘" class="headerlink" title="1. 制作启动U盘"></a>1. 制作启动U盘</h1><h2 id="1-1-下载最新镜像"><a href="#1-1-下载最新镜像" class="headerlink" title="1.1 下载最新镜像"></a>1.1 下载最新镜像</h2><blockquote>
+<p><a href="http://mirrors.163.com/archlinux/iso/2015.04.01/archlinux-2015.04.01-dual.iso" target="_blank" rel="external">archlinux-2015.04.01-dual.iso</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-2-将镜像写入启动U盘（for-OSX）"><a href="#1-2-将镜像写入启动U盘（for-OSX）" class="headerlink" title="1.2 将镜像写入启动U盘（for OSX）"></a>1.2 将镜像写入启动U盘（for OSX）</h2><p>插入U盘，使用以下命令查看U盘挂载路径<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diskutil <span class="built_in">list</span></span><br></pre></td></tr></table></figure></p>
+<p>卸载磁盘<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diskutil unmountDisk <span class="meta-keyword">/dev/</span>disk2</span><br></pre></td></tr></table></figure></p>
+<p>写入镜像<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="selector-tag">dd</span> <span class="keyword">if</span>=image<span class="selector-class">.iso</span> of=/dev/rdisk2 bs=<span class="number">1</span>M</span><br></pre></td></tr></table></figure></p>
+<p>拔出U盘<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diskutil eject <span class="meta-keyword">/dev/</span>disk2</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-3-恢复U盘"><a href="#1-3-恢复U盘" class="headerlink" title="1.3 恢复U盘"></a>1.3 恢复U盘</h2><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dd count=<span class="number">1</span> bs=<span class="number">512</span> <span class="keyword">if</span>=<span class="regexp">/dev/zero</span> <span class="keyword">of</span>=<span class="regexp">/dev/disk</span>2 &amp;&amp; sync</span><br></pre></td></tr></table></figure>
+<h1 id="2-安装-Archlinux-基础系统"><a href="#2-安装-Archlinux-基础系统" class="headerlink" title="2. 安装 Archlinux 基础系统"></a>2. 安装 Archlinux 基础系统</h1><h2 id="2-1-U盘引导启动"><a href="#2-1-U盘引导启动" class="headerlink" title="2.1 U盘引导启动"></a>2.1 U盘引导启动</h2><p>插上安装U盘，选择从UEFI U盘启动。</p>
+<p><strong>注意</strong>启动时一定要选择UEFI的U盘作为首选启动项，否则后面安装可能会有问题。</p>
+<p>选择第一项，进入<code>Arch Linux archiso x86_64 UEFI CD</code></p>
+<h2 id="2-2-分区格式化"><a href="#2-2-分区格式化" class="headerlink" title="2.2 分区格式化"></a>2.2 分区格式化</h2><h3 id="2-2-1-分区方案"><a href="#2-2-1-分区方案" class="headerlink" title="2.2.1 分区方案"></a>2.2.1 分区方案</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">分区</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:right">大小</th>
+<th style="text-align:right">类型代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">/dev/sdf1</td>
+<td style="text-align:left">/boot/efi</td>
+<td style="text-align:right">512M</td>
+<td style="text-align:right">ef00</td>
+</tr>
+<tr>
+<td style="text-align:left">/dev/sdf2</td>
+<td style="text-align:left">/</td>
+<td style="text-align:right">28G</td>
+<td style="text-align:right">8300</td>
+</tr>
+<tr>
+<td style="text-align:left">/dev/sdf3</td>
+<td style="text-align:left">swap</td>
+<td style="text-align:right">4G</td>
+<td style="text-align:right">8200</td>
+</tr>
+<tr>
+<td style="text-align:left">/dev/sdf4</td>
+<td style="text-align:left">/home</td>
+<td style="text-align:right">87G</td>
+<td style="text-align:right">8300</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-2-2-建立新的分区表"><a href="#2-2-2-建立新的分区表" class="headerlink" title="2.2.2 建立新的分区表"></a>2.2.2 建立新的分区表</h3><p>使用parted命令来分区<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># parted /dev/sdf</span><br><span class="line"></span><br><span class="line">(parted) mklabel gpt</span><br><span class="line">(parted) mkpart ESP fat32 <span class="number">1</span>M <span class="number">513</span>M</span><br><span class="line">(parted) <span class="keyword">set</span> 1 boot <span class="comment">on</span></span><br><span class="line">(parted) mkpart <span class="comment">primary ext4 513M 30.5G</span></span><br><span class="line">(parted) mkpart <span class="comment">primary linux-swap 30.5G 34.5G</span></span><br><span class="line">(parted) mkpart <span class="comment">primary ext4 34.5G 100%</span></span><br><span class="line">(parted) quit</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-3-格式化分区"><a href="#2-2-3-格式化分区" class="headerlink" title="2.2.3 格式化分区"></a>2.2.3 格式化分区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkfs.vfat -F32 /dev/sdf1</span></span><br><span class="line"><span class="comment"># mkfs.ext4 /dev/sdf2</span></span><br><span class="line"><span class="comment"># mkswap /dev/sdf3</span></span><br><span class="line"><span class="comment"># swapon /dev/sdf3</span></span><br><span class="line"><span class="comment"># mkfs.ext4 /dev/sdf4</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-4-挂载分区："><a href="#2-2-4-挂载分区：" class="headerlink" title="2.2.4 挂载分区："></a>2.2.4 挂载分区：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mount /dev/sdf2 /mnt</span></span><br><span class="line"><span class="comment"># mkdir -p /mnt/boot</span></span><br><span class="line"><span class="comment"># mount /dev/sdf1 /mnt/boot</span></span><br><span class="line"><span class="comment"># mkdir -p /mnt/home</span></span><br><span class="line"><span class="comment"># mount /dev/sdf4 /mnt/home</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-3-选择软件源"><a href="#2-3-选择软件源" class="headerlink" title="2.3 选择软件源"></a>2.3 选择软件源</h2><p>编辑 <code>/etc/pacman.d/mirrorlist</code><br>将ustc源复制到最前面<br>因为默认编辑器是<code>vi</code>，使用方法为：复制<code>yy</code>，移动到首行<code>:1</code>，粘贴<code>p</code><br>然后用下面命令更新源：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># pacman -Syy</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-4-安装基本系统"><a href="#2-4-安装基本系统" class="headerlink" title="2.4 安装基本系统"></a>2.4 安装基本系统</h2><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacstrap -i /mnt <span class="keyword">base</span> <span class="keyword">base</span>-devel</span><br></pre></td></tr></table></figure>
+<h2 id="2-5-生成-fstab"><a href="#2-5-生成-fstab" class="headerlink" title="2.5 生成 fstab"></a>2.5 生成 fstab</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab</span></span><br><span class="line"><span class="meta"># cat /mnt/etc/fstab</span></span><br></pre></td></tr></table></figure>
+<p>注意，生成 <code>fstab</code> 后，务必检查一下内容是否正确。如果有问题，不要再运行 <code>genfstab</code>，直接手动编辑 <code>/mnt/etc/fstab</code> 文件。</p>
+<h2 id="2-6-切换到新系统"><a href="#2-6-切换到新系统" class="headerlink" title="2.6 切换到新系统"></a>2.6 切换到新系统</h2><p>基础系统已经安装完成，但是新安装的系统还需要一些配置工作，才能引导。<br>先 chroot 到新系统：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># arch-chroot /mnt /bin/bash</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-7-设置语言地区"><a href="#2-7-设置语言地区" class="headerlink" title="2.7 设置语言地区"></a>2.7 设置语言地区</h2><p>编辑<code>/etc/locale.gen</code>，去掉以下项目的注释：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">en_US<span class="selector-class">.UTF-8</span> UTF-<span class="number">8</span></span><br><span class="line">zh_CN<span class="selector-class">.GB18030</span> GB18030</span><br><span class="line">zh_CN<span class="selector-class">.GBK</span> GBK</span><br><span class="line">zh_CN<span class="selector-class">.UTF-8</span> UTF-<span class="number">8</span></span><br><span class="line">zh_CN GB2312</span><br></pre></td></tr></table></figure></p>
+<p>然后运行：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># locale-gen</span></span><br></pre></td></tr></table></figure></p>
+<p>最后，编辑<code>/etc/locale.conf</code>：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：不要在这里把系统全局设置成中文，因为终端无法显示中文，请单独将桌面环境设置为中文。</p>
+<h2 id="2-8-设置时区"><a href="#2-8-设置时区" class="headerlink" title="2.8 设置时区"></a>2.8 设置时区</h2><p>将 <code>/etc/localtime</code> 软链接到 <code>/usr/share/zoneinfo/Zone/SubZone</code>。其中 Zone 和 Subzone 替换为所在时区，例如：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ln -s <span class="regexp">/usr/</span>share<span class="regexp">/zoneinfo/</span>Asia<span class="regexp">/Shanghai /</span>etc<span class="regexp">/localtime</span></span><br></pre></td></tr></table></figure></p>
+<p>利用 ntp 自动校时：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># pacman -S ntp</span></span><br><span class="line"><span class="meta"># ntpdate time.nist.gov</span></span><br></pre></td></tr></table></figure></p>
+<p>将系统时间写入硬件时钟：<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span> <span class="comment">hwclock</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">systohc</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">utc</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-9-设置主机名"><a href="#2-9-设置主机名" class="headerlink" title="2.9 设置主机名"></a>2.9 设置主机名</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># echo myhostname &gt; /etc/hostname</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-10-启用-dhcpcd-服务"><a href="#2-10-启用-dhcpcd-服务" class="headerlink" title="2.10 启用 dhcpcd 服务"></a>2.10 启用 dhcpcd 服务</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># systemctl enable dhcpcd.service</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-11-创建ramdisk"><a href="#2-11-创建ramdisk" class="headerlink" title="2.11 创建ramdisk"></a>2.11 创建ramdisk</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># mkinitcpio –p linux</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-12-设置-Root-密码"><a href="#2-12-设置-Root-密码" class="headerlink" title="2.12 设置 Root 密码"></a>2.12 设置 Root 密码</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># passwd</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-13-安装和配置-Bootloader"><a href="#2-13-安装和配置-Bootloader" class="headerlink" title="2.13 安装和配置 Bootloader"></a>2.13 安装和配置 Bootloader</h2><p>此方法只能用于支持<code>UEFI</code>的主板，如不支持<code>UEFI</code>，请查看Archlinux的Wiki。</p>
+<p>选择<code>Gummiboot</code>作为启动器，如要选择<code>Grub</code>同样请查看Archlinux的Wiki。</p>
+<p>首先安装 <code>dosfstools</code> 以便在安装之后继续维护 EFI 系统分区。安装<code>efibootmgr</code> 创建可启动的 .efi 文件(bootmanager 安装脚本会使用)</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># pacman -S dosfstools efibootmgr</span></span><br></pre></td></tr></table></figure>
+<p><strong>强烈建议</strong>将 EFI 系统分区挂载到 <code>/boot</code>，这样可以自动更新 Gummiboot。<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># pacman -S gummiboot</span></span><br><span class="line"><span class="meta"># gummiboot --path=/boot install</span></span><br></pre></td></tr></table></figure></p>
+<p>Gummiboot 会自动检测 <code>bootx64.efi</code> 需要的文件并放入 <code>/boot/EFI/Boot</code></p>
+<p>创建 <code>/boot/loader/entries/arch.conf</code> 并添加以下内容：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title          Arch Linux</span><br><span class="line">linux          /vmlinuz-linux</span><br><span class="line">initrd         /initramfs-linux<span class="selector-class">.img</span></span><br><span class="line">options        root=/dev/sdf2 rw</span><br></pre></td></tr></table></figure></p>
+<p>然后创建 <code>/boot/loader/loader.conf</code>，并写入下面配置：<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">default</span>  arch</span><br><span class="line"><span class="title">timeout</span>  <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-14-卸载分区并重启系统"><a href="#2-14-卸载分区并重启系统" class="headerlink" title="2.14 卸载分区并重启系统"></a>2.14 卸载分区并重启系统</h2><p>现在新系统已经准备好第一次引导了，先退出 chroot 环境：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># exit</span></span><br></pre></td></tr></table></figure></p>
+<p>然后，卸载分区并重启系统：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>umount -R /mnt</span><br><span class="line"><span class="variable">$ </span>reboot</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>，reboot前先拔掉u盘</p>
+<h1 id="3-配置系统和安装软件"><a href="#3-配置系统和安装软件" class="headerlink" title="3 配置系统和安装软件"></a>3 配置系统和安装软件</h1><h2 id="3-1-创建帐号"><a href="#3-1-创建帐号" class="headerlink" title="3.1 创建帐号"></a>3.1 创建帐号</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># useradd aken</span></span><br><span class="line"><span class="meta"># passwd aken</span></span><br><span class="line"><span class="meta"># mkdir -p /home/aken</span></span><br><span class="line"><span class="meta"># chmod 755 /home/aken</span></span><br><span class="line"><span class="meta"># chown aken:aken /home/aken</span></span><br></pre></td></tr></table></figure>
+<p>修改visudo，使得普通帐号可以免密码sudo<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># visudo</span></span><br></pre></td></tr></table></figure></p>
+<p>接下来的所有操作均使用普通帐号</p>
+<h2 id="3-2-安装vim"><a href="#3-2-安装vim" class="headerlink" title="3.2 安装vim"></a>3.2 安装vim</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -<span class="keyword">S</span> vim</span><br></pre></td></tr></table></figure>
+<h2 id="3-3-安装ssh"><a href="#3-3-安装ssh" class="headerlink" title="3.3 安装ssh"></a>3.3 安装ssh</h2><p>先安装ssh，并配置密钥，以便远程安装<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo pacman -S openssh</span><br><span class="line"><span class="variable">$ </span>ssh-keygen -t rsa</span><br><span class="line"><span class="variable">$ </span>sudo systemctl start sshd</span><br><span class="line"><span class="variable">$ </span>sudo systemctl enable sshd</span><br></pre></td></tr></table></figure></p>
+<p>为了防止ssh长时间自动断开，及防止被攻击，需要修改config文件<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim <span class="meta-keyword">/etc/</span>ssh/sshd_config</span><br></pre></td></tr></table></figure></p>
+<p>修改以下参数并保存<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 下面三条为防止ssh长时间自动断开</span></span><br><span class="line">TCPKeepAlive yes</span><br><span class="line">ClientAliveCountMax <span class="number">5</span></span><br><span class="line">ClientAliveInterval <span class="number">300</span></span><br><span class="line"><span class="meta"># 防止被攻击，修改SSH监听端口</span></span><br><span class="line">Port <span class="number">2345</span></span><br><span class="line"><span class="meta"># 防止漏洞仅允许SSH协议版本2</span></span><br><span class="line">Protocol <span class="number">2</span> </span><br><span class="line"><span class="meta"># 禁止root用户登录</span></span><br><span class="line">PermitRootLogin no</span><br></pre></td></tr></table></figure></p>
+<p>以下所有操作可在远程登陆。</p>
+<h2 id="3-4-安装Yaourt"><a href="#3-4-安装Yaourt" class="headerlink" title="3.4 安装Yaourt"></a>3.4 安装Yaourt</h2><p>添加Yaourt源至 <code>/etc/pacman.conf</code><br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[archlinuxfr]</span></span><br><span class="line"><span class="attr">SigLevel</span> = Never</span><br><span class="line"><span class="attr">Server</span> = http://repo.archlinux.fr/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></p>
+<p>同步并安装<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo pacman -Sy</span><br><span class="line"><span class="variable">$ </span>sudo pacman -S yaourt</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-5-安装zsh"><a href="#3-5-安装zsh" class="headerlink" title="3.5 安装zsh"></a>3.5 安装zsh</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yaourt -S zsh git</span><br><span class="line"><span class="variable">$ </span> chsh -s <span class="variable">$(</span>which zsh)</span><br><span class="line"><span class="variable">$ </span>curl -L <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-6-安装网络工具"><a href="#3-6-安装网络工具" class="headerlink" title="3.6 安装网络工具"></a>3.6 安装网络工具</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -<span class="keyword">S</span> net-tools dnsutils inetutils iproute2</span><br></pre></td></tr></table></figure>
+<h2 id="3-7-挂载硬盘"><a href="#3-7-挂载硬盘" class="headerlink" title="3.7 挂载硬盘"></a>3.7 挂载硬盘</h2><p>先查看所有硬盘的UUID<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l <span class="meta-keyword">/dev/</span>disk<span class="meta-keyword">/by-uuid/</span></span><br></pre></td></tr></table></figure></p>
+<p>再写入/etc/fstab文件<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UUID=<span class="number">410a1569</span>-<span class="number">3d51-4626</span>-ac7b-d3b<span class="number">02c6642b9</span>       /home/aken/mnt/vol1 ext4    defaults <span class="number">0</span>       <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="3-8-安装KODI"><a href="#3-8-安装KODI" class="headerlink" title="3.8 安装KODI"></a>3.8 安装KODI</h2><p>安装 X 窗口管理系统<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -S <span class="keyword">xorg-server </span><span class="keyword">xorg-xinit </span><span class="keyword">xorg-utils </span><span class="keyword">xorg-server-utils</span></span><br></pre></td></tr></table></figure></p>
+<p>安装声卡驱动<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -S alsa-utils alsa-plugins mesa mesa-demos <span class="keyword">xorg-twm </span><span class="keyword">xorg-xclock </span>xterm</span><br></pre></td></tr></table></figure></p>
+<p>装显卡通用驱动（vesa）：<br><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -<span class="keyword">S</span> xf86-video-vesa xf86-video-modesetting xf86-video-fbdev xf86-video-intel</span><br></pre></td></tr></table></figure></p>
+<p>运行<code>alsamixer</code>，将master音量开到最大</p>
+<p>安装kodi<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yaourt -S kodi  kodi-standalone-service</span><br><span class="line"><span class="variable">$ </span>sudo systemctl enable kodi</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-9-安装transmission"><a href="#3-9-安装transmission" class="headerlink" title="3.9 安装transmission"></a>3.9 安装transmission</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yaourt -S transmission-cli</span><br><span class="line"><span class="variable">$ </span>sudo systemctl enable transmission</span><br><span class="line"><span class="variable">$ </span>sudo systemctl start transmission</span><br></pre></td></tr></table></figure>
+<p>先杀掉所有transmission相关进程<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">ps</span> aux|<span class="keyword">grep</span> transmission</span><br></pre></td></tr></table></figure></p>
+<p>再修改配置文件（必须启动一次才会初始化这个配置文件）<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /var/<span class="class"><span class="keyword">lib</span>/<span class="title">transmission</span>/.<span class="title">config</span>/<span class="title">transmission</span>-<span class="title">daemon</span>/<span class="title">settings</span>.<span class="title">json</span></span></span><br></pre></td></tr></table></figure></p>
+<p>将默认值修改为以下，其中rpc-password直接填入密码即可，保存后会自动变成hash。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">rpc-whitelist-<span class="string">enabled:</span>     <span class="literal">false</span></span><br><span class="line"><span class="string">umask:</span>     <span class="number">0</span></span><br><span class="line">download-<span class="string">dir:</span>     <span class="regexp">/home/</span>aken<span class="regexp">/vol1/</span>movie</span><br><span class="line">utp-<span class="string">enabled:</span>     <span class="literal">false</span></span><br><span class="line">dht-<span class="string">enabled:</span>     <span class="literal">false</span></span><br><span class="line">pex-<span class="string">enabled:</span>     <span class="literal">false</span></span><br><span class="line">speed-limit-<span class="string">up:</span>     <span class="number">300</span></span><br><span class="line">speed-limit-up-<span class="string">enabled:</span>     <span class="literal">true</span></span><br><span class="line">cache-size-<span class="string">mb:</span>     <span class="number">1024</span></span><br><span class="line"><span class="string">"rpc-authentication-required"</span>:  <span class="literal">true</span>,</span><br><span class="line"><span class="string">"rpc-password"</span>: <span class="string">"&#123;4d7929e90bd2141fad7fc2bdea06f057a6bf6f43yc67tGuh"</span>,</span><br><span class="line"><span class="string">"rpc-username"</span>: <span class="string">"aken"</span>,</span><br></pre></td></tr></table></figure></p>
+<p>修改完成，退出重启transmission即可。</p>
+<h2 id="3-10-设置节能模式"><a href="#3-10-设置节能模式" class="headerlink" title="3.10 设置节能模式"></a>3.10 设置节能模式</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -<span class="keyword">S</span> hdparm hddtemp lm_sensors</span><br><span class="line">$ sudo hdparm -<span class="keyword">S</span> <span class="number">255</span> /dev/sda</span><br></pre></td></tr></table></figure>
+<h2 id="3-11-安装samba"><a href="#3-11-安装samba" class="headerlink" title="3.11 安装samba"></a>3.11 安装samba</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -<span class="keyword">S</span> samba</span><br></pre></td></tr></table></figure>
+<p>将以下内容放入/etc/samba/smb.conf文件中<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line"><span class="attr">workgroup</span> = WORKGROUP</span><br><span class="line">server <span class="attr">string</span> = Samba Server</span><br><span class="line"><span class="attr">security</span> = user</span><br><span class="line"><span class="built_in">map</span> to <span class="attr">guest</span> = Bad User</span><br><span class="line">guest <span class="attr">account</span> = nobody</span><br><span class="line">log <span class="attr">file</span> = /var/log/samba/log.%m</span><br><span class="line">max log <span class="attr">size</span> = <span class="number">50</span></span><br><span class="line">dns <span class="attr">proxy</span> = No</span><br><span class="line">wins <span class="attr">support</span> = Yes</span><br><span class="line">guest <span class="attr">ok</span> = Yes</span><br><span class="line"></span><br><span class="line">[aken-NAS]</span><br><span class="line"><span class="attr">path</span> = /home/aken/mnt</span><br><span class="line">read <span class="attr">only</span> = No</span><br><span class="line">create <span class="attr">mask</span> = <span class="number">0664</span></span><br><span class="line">directory <span class="attr">mask</span> = <span class="number">0775</span></span><br></pre></td></tr></table></figure></p>
+<p>设置开机启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl <span class="built_in">enable</span> smbd nmbd</span><br></pre></td></tr></table></figure></p>
+<p>启动samba<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl <span class="literal">start</span> smbd nmbd</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-12-ddns设置"><a href="#3-12-ddns设置" class="headerlink" title="3.12 ddns设置"></a>3.12 ddns设置</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yaourt -S lynx cronie</span><br><span class="line"><span class="variable">$ </span>crontab -e</span><br><span class="line">*<span class="regexp">/10 * * * * /home</span><span class="regexp">/aken/bin</span><span class="regexp">/update_ddns.sh &gt;&gt; /home</span><span class="regexp">/aken/bin</span><span class="regexp">/log/ddns</span>.log</span><br></pre></td></tr></table></figure>
+<h1 id="4-一些脚本"><a href="#4-一些脚本" class="headerlink" title="4 一些脚本"></a>4 一些脚本</h1><p>➜  bin  cat sleep.sh<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop kodi</span><br><span class="line">sudo hdparm -Y <span class="meta-keyword">/dev/</span>sdb</span><br><span class="line">sudo hdparm -Y <span class="meta-keyword">/dev/</span>sdc</span><br><span class="line">sudo hdparm -Y <span class="meta-keyword">/dev/</span>sdd</span><br><span class="line">sudo hdparm -Y <span class="meta-keyword">/dev/</span>sde</span><br></pre></td></tr></table></figure></p>
+<p>➜  bin  cat temp.sh<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sensors</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sda</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sdb</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sdc</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sdd</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sde</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sda</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sdb</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sdc</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sdd</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sde</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sdf</span><br></pre></td></tr></table></figure></p>
+<p>➜  bin  cat update_ddns.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line">ipaddr=`lynx -mime_header -auth=akenzc:password <span class="string">"http://www.3322.org/dyndns/update?system=dyndns&amp;hostname=hostname"</span> | egrep <span class="string">"[0-9]+/.[0-9]+/.[0-9]+/.[0-9]+"</span>|awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line"></span><br><span class="line">date=`date <span class="string">"+%y-%m-%d %H:%M"</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$date</span> <span class="variable">$ipaddr</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[NAS系统盘升级]]></title>
+      <url>http://akenzc.com/post/nas-system-disk-upgrade/</url>
+      <content type="html"><![CDATA[<h1 id="NAS系统盘升级"><a href="#NAS系统盘升级" class="headerlink" title="NAS系统盘升级"></a>NAS系统盘升级</h1><p>其实说升级并不准确，从性能和容量来说实际上是降级了。</p>
+<h2 id="1-CZ80"><a href="#1-CZ80" class="headerlink" title="1. CZ80"></a>1. CZ80</h2><p>放弃了黑群晖，恢复Archlinux系统很简单，我之前系统是安装在U盘上的，重新插上就可以了。但是系统U盘是当年Sandisk的旗舰型号CZ80，虽然这个型号现在已经变成了次旗舰，但这块读245MB/s，写190MB/s的64GB USB3.0 U盘做Linux系统盘，感觉还是委屈了点。</p>
+<h2 id="2-CZ43"><a href="#2-CZ43" class="headerlink" title="2. CZ43"></a>2. CZ43</h2><p>恰巧前段时间Sandisk推出了mini小巧的CZ43至尊酷豆，USB3.0接口，读130MB/s，写40MB/s，最重要的是长度只有19.1mm，和罗技的优联接收器差不多大小，插在NAS后面一点都不会突出，太适合做系统盘了。当然价格也不贵，索性直接搞了个32GB的版本，替换下CZ80。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[黑群晖]]></title>
+      <url>http://akenzc.com/post/black-synology/</url>
+      <content type="html"><![CDATA[<h1 id="黑群晖"><a href="#黑群晖" class="headerlink" title="黑群晖"></a>黑群晖</h1><p>最近的一切折腾都从黑群晖开始。</p>
+<h2 id="1-试用黑群晖"><a href="#1-试用黑群晖" class="headerlink" title="1. 试用黑群晖"></a>1. 试用黑群晖</h2><p>我的NAS系统一直用的是Archlinux，已经稳定运行了一年多，但最近看5.0版本的黑群晖系统基本趋于稳定，于是心痒痒，想感受一下DSM的魅力。</p>
+<p>不得不说，现在的黑群晖真是简单方便，看完指导10分钟不到就把系统盘做好了，插上机器启动一次成功，看着漂亮的WebUI，真是舒坦。</p>
+<a id="more"></a>
+<h2 id="2-核心功能的处理逻辑"><a href="#2-核心功能的处理逻辑" class="headerlink" title="2. 核心功能的处理逻辑"></a>2. 核心功能的处理逻辑</h2><p>但是开始挂载硬盘时，问题来了。</p>
+<h3 id="2-1-分区模式"><a href="#2-1-分区模式" class="headerlink" title="2.1 分区模式"></a>2.1 分区模式</h3><p>我的数据盘都是只有一个ext4分区，如果想要挂载到DSM系统下，就必须格重新分区格式化，不论几块硬盘，每块都会安装以下逻辑划分出三个分区来。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">System</th>
+<th style="text-align:center">Swap</th>
+<th style="text-align:center">N/A</th>
+<th style="text-align:center">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2.5GB</td>
+<td style="text-align:center">2GB</td>
+<td style="text-align:center">128MB</td>
+<td style="text-align:center">剩下全部</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-2-系统到底在哪？"><a href="#2-2-系统到底在哪？" class="headerlink" title="2.2 系统到底在哪？"></a>2.2 系统到底在哪？</h3><ul>
+<li>如果只有一块硬盘，系统就在那块硬盘的系统分区里。</li>
+<li>如果有多块硬盘，每块硬盘的系统分区都会装载完整的系统，并且保持同步。</li>
+</ul>
+<p>所以，修改系统的任意一个文件，所有的硬盘都会同时修改。</p>
+<h3 id="2-3-这样做的好处"><a href="#2-3-这样做的好处" class="headerlink" title="2.3 这样做的好处"></a>2.3 这样做的好处</h3><ul>
+<li>NAS在运行期间，如果没有做RAID，拔下任意一块或多块硬盘，不会影响系统工作。</li>
+<li>如果做了RAID，根据不同情况，可拔下的硬盘数量会有限制。</li>
+</ul>
+<p>我就不恶意揣测群晖为什么要选择这种实现方式了。</p>
+<h3 id="2-4-对我的困扰"><a href="#2-4-对我的困扰" class="headerlink" title="2.4 对我的困扰"></a>2.4 对我的困扰</h3><p>使用没多久，我就发现硬盘休眠不正常了。</p>
+<p>在之后几天的使用中我发现，添加一个种子，所有的硬盘都激活了。跑一个脚本，硬盘又被激活了。写个日志被激活，访问WebUI被激活，甚至在我没有操作的时候还会时不时的莫名被激活。</p>
+<h2 id="3-我对NAS的基本需求"><a href="#3-我对NAS的基本需求" class="headerlink" title="3. 我对NAS的基本需求"></a>3. 我对NAS的基本需求</h2><p>我的需求很简单，其中一块做种的硬盘7*24小时运转，剩下的数据盘根据需要激活和休眠，这样频繁的激活、休眠，真怕要不了多久，数据盘就会挂掉。</p>
+<p>此外，可能是兼容性的原因，即便是在硬盘温度很低的情况下，硬盘风扇始终保持高速运转。风扇的噪音加上五块机械硬盘的运转噪音，实在是无法忍受。</p>
+<h2 id="4-放弃群晖"><a href="#4-放弃群晖" class="headerlink" title="4. 放弃群晖"></a>4. 放弃群晖</h2><p>最核心的存储功能和我的需求不一致，一些重要的群晖网络服务缺失（当然这是黑群晖的问题），其他的卖点比如手机app质量一般，对我没有什么吸引力，所以我只能放弃群晖了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CNAME和MX记录冲突]]></title>
+      <url>http://akenzc.com/post/cname-and-mx-records-conflict/</url>
+      <content type="html"><![CDATA[<p>前段时间把Blog给挪到Farbox，相应的域名也CNAME指向到了akenzc.farbox.com，但没过多久就发现每天收到的邮件越来越少，也没太在意。直到昨天有人给我发邮件但是等了很久都没收到，我才感觉到邮箱出问题了。</p>
+<a id="more"></a>
+<p>一开始立刻就想到是不是前几天修改域名解析时改错了，于是立刻去查看了日志，发现并没有动到mx记录。又看了一下邮箱，发现修改了三四天后仍然可以收到邮件，结果我当时判断和域名解析无关。后来想了想可能是某些DNS好几天都没有刷新。</p>
+<p>后来以为google apps的更改了设置，于是按照文档又配置了一遍，等了几个小时仍然无效。无奈的我使用命令 <code>nslookup -q=mx akenzc.com</code> 来查看mx记录到底被解析到了哪里，结果发现mx记录被指向到了farbox。仔细的查了一下文档，发现在RFC解析协议中，CNAME记录的优先级是要高于MX记录的优先级的。也就是说如果对根域名做了CNAME，则MX记录就会失效。</p>
+<p>找出问题，解决就简单了，把www子域名CNAME到akenzc.farbox.com，然后把根域A记录指向akenzc.com.park.farbox.net的ip，等了一会邮箱就多出了一堆邮件，终于好了。</p>
+<p>但这样做有个问题，如果farbox换ip了，那么akenzc.com就无法访问，我得跟着改A记录的指向。可是目前没有更好的办法，暂时就先这样吧。以后要牢记，对设置过MX记录的域名，千万不能对根域名设置CNAME啊！</p>
+<p>最后，35互联在保存设置的时候居然都不提示冲突，真是太烂了，我这次下定决心一定要换家域名服务商。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[选中的进化]]></title>
+      <url>http://akenzc.com/post/popclip/</url>
+      <content type="html"><![CDATA[<h2 id="PopClip"><a href="#PopClip" class="headerlink" title="PopClip"></a>PopClip</h2><p>今天趁着PopClip四折，赶紧在Mac AppStore收了回来。</p>
+<p>在iOS上，选中一段文本后会跳出一个横栏，上面有剪切、拷贝、全选、词典等几个选项，PopClip就是这个功能在OSX上的实现。不过，比iOS系统功能更强大的是，PopClip可以安装各种扩展来实现一些日常重复的工作流，大大提高了工作效率。</p>
+<p><img src="/images/popclip2.png" alt=""></p>
+<a id="more"></a>
+<p>PopClip可以对选中的文字搜索、编辑、格式化、翻译、添加到note工具、todo工具，发送到社交网络，可以对选中的链接生成短地址、发送到稍后阅读应用，对选中的数字拨号、计算、单位转换、字数统计、拼读。甚至可以发送选中的命令到terminal里执行。总之只要你能想到的workflow都可以通过PopClip一键实现。</p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>官网收录了很多插件： <a href="http://pilotmoon.com/popclip/extensions/" target="_blank" rel="external">http://pilotmoon.com/popclip/extensions/</a></p>
+<p>当然更多的插件可以去Github搜索。</p>
+<p>我把官网的插件全部看了一遍，基本上想要的不想要的都有了，装了一堆发现很多功能其实并不会经常使用，而每次选中都会弹出很长的横栏就很烦，所以最后只选取了几个我认为最常用的：</p>
+<p><img src="/images/popclip1.png" alt=""></p>
+<ul>
+<li><p>打开链接： 使用默认浏览器打开选中文字中的URL，如果有多个URL会依次打开多个tab</p>
+</li>
+<li><p>搜索： 使用Google搜索选中的文字</p>
+</li>
+<li><p><a href="http://pilotmoon.com/popclip/extensions/page/Baidu" target="_blank" rel="external">baidu</a>： 使用百度搜索选中的文字</p>
+</li>
+<li><p>剪切、拷贝、粘贴： 这个就不解释了</p>
+</li>
+<li><p>在Finder中显示： 如果选中的文字中有文件路径，则使用Finder打开</p>
+</li>
+<li><p>使用地址： 如果选中的文字中有邮箱地址，则使用mail.app打开，并新建一封邮件</p>
+</li>
+<li><p>词典： 使用系统词典搜索选中的文字</p>
+</li>
+<li><p><a href="http://pilotmoon.com/popclip/extensions/page/InstantTranslate" target="_blank" rel="external">Instant Translate</a>： 翻译选中的文字，调用的是google翻译，可以选择目标语言</p>
+</li>
+<li><p><a href="http://pilotmoon.com/popclip/extensions/page/Evernote" target="_blank" rel="external">Evernote</a>： 将选中的文字发送到Evernote，并新建一个条目</p>
+</li>
+<li><p><a href="http://pilotmoon.com/popclip/extensions/page/Say" target="_blank" rel="external">Say</a>： 阅读选中的文字，好像只支持英文</p>
+</li>
+</ul>
+<h2 id="Instant-Translate-被墙的解决方法"><a href="#Instant-Translate-被墙的解决方法" class="headerlink" title="Instant Translate 被墙的解决方法"></a>Instant Translate 被墙的解决方法</h2><p>由于Instant Translate默认使用的是Google.com的服务，所以在天朝就不是那么好使了，好在translates.google.cn还比较好用，所以修改一下URL就可以了。</p>
+<ul>
+<li>打开 <code>Library/Application Support/PopClip/Extensions/InstantTranslate.popclipext/translate.py</code></li>
+<li>将文件里的<code>google.com</code>替换成<code>google.cn</code>即可。</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[使用Pelican搭建Blog]]></title>
+      <url>http://akenzc.com/post/how-to-build-a-blog-with-pelican/</url>
+      <content type="html"><![CDATA[<p>这篇是我之前用Pelican搭建Blog时写的文章，虽然现在已经迁移到Farbox来了，但还是转过来留存吧。</p>
+<h2 id="什么是静态Blog"><a href="#什么是静态Blog" class="headerlink" title="什么是静态Blog"></a>什么是静态Blog</h2><p>一直以来搭建独立Blog的首选只有 Wordpress ，不但安装快捷简单，还有无数的插件和主题。甚至有的虚拟空间的运营商还提供一键安装脚本，直接把搭建独立Blog的门槛拉到了0。但是 Wordpress 这种 PHP+Mysql 的方式就是最优的选择嘛？</p>
+<p>NO！我需要的只是一个简单的Blog啊，我只要把页面静态的展示出来就可以了，真心不需要那些复杂的功能啊。还有 Wordpress 的编辑器实在是太麻烦太难用了，作为一个坚定的 VIM 党，能用 VIM 写Blog是一件多么幸福的事情啊。最后，找一个免费且稳定的静态空间实在是太容易了，但是找一个免费或稳定的 PHP+Mysql 空间我就只能呵呵呵了。</p>
+<p>看来看去和我一样需求的人还真不少， Github 中随便一搜 static blog 就会发现一堆类似 Pelican 的静态Blog生成工具。</p>
+<a id="more"></a>
+<h2 id="静态Blog生成工具的好处："><a href="#静态Blog生成工具的好处：" class="headerlink" title="静态Blog生成工具的好处："></a>静态Blog生成工具的好处：</h2><ul>
+<li><p>静态，对托管空间没有要求，只要支持Web服务即可，甚至可以放在 Github 或 Gitbucket 上。</p>
+</li>
+<li><p>支持 reStructuredText 和 Markdown 语法，这种所想即所得的标记语言加上 VIM ，写Blog真心享受啊。</p>
+</li>
+<li><p>管理，日志都是文本文件，可以用 Git 方便的管理、进行版本控制。妈妈再也不用担心我的Blog数据丢失了。</p>
+</li>
+<li><p>内嵌代码支持，使用 pygments 这么棒的工具就不用多说了。</p>
+</li>
+</ul>
+<h2 id="为什么选择Pelican"><a href="#为什么选择Pelican" class="headerlink" title="为什么选择Pelican"></a>为什么选择Pelican</h2><p>其实我最早知道的是 Octopress ，但是我对 Ruby 实在是不熟，又没有兴趣为了搭个Blog花时间去研究 Ruby ，于是就在 Github 上去找 Python 对应的解决方案，还真发现了不少。但是要么用的人少，要么不支持 reStructuredText 标记语言。为了少折腾，我还是选了用的人最多的，最流行的 Pelican 。</p>
+<h3 id="安装Pelican"><a href="#安装Pelican" class="headerlink" title="安装Pelican"></a>安装Pelican</h3><p>官方建议在 virtualenv 下使用 Pelican 。首先安装 virtualenv，并建立 Pelican virtualenv。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install virtualenv</span><br><span class="line">$ virtualenv pelican</span><br><span class="line">$ <span class="built_in">cd</span> pelican</span><br><span class="line">$ <span class="built_in">source</span> bin/activate</span><br></pre></td></tr></table></figure>
+<p>如果此时 shell 提示符前面多了 (pelican) 这个提示，这就说明已经是在虚拟环境中，在这个环境中可以安装任意的 Python 库，而不用担心会把系统自带的 Python 库搞乱。</p>
+<h3 id="从-Github-克隆最新代码安装-Pelican"><a href="#从-Github-克隆最新代码安装-Pelican" class="headerlink" title="从 Github 克隆最新代码安装 Pelican"></a>从 Github 克隆最新代码安装 Pelican</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git://github.com/getpelican/pelican.git</span><br><span class="line">$ <span class="built_in">cd</span> pelican</span><br><span class="line">$ python setup.py install</span><br></pre></td></tr></table></figure>
+<p>到此， Pelican 就安装好了。</p>
+<h3 id="新建Blog"><a href="#新建Blog" class="headerlink" title="新建Blog"></a>新建Blog</h3><p>创建一个文件夹新建Blog</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir myblog</span><br><span class="line">$ <span class="built_in">cd</span> myblog</span><br><span class="line">$ pelican-quickstart</span><br></pre></td></tr></table></figure>
+<p>根据自身情况回答完所有问题后会生成下列文件：:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- content              <span class="comment"># 所有的文章和图片都放在此目录</span></span><br><span class="line">|-- develop_server.sh    <span class="comment"># 用于开启测试服务器</span></span><br><span class="line">|-- Makefile             <span class="comment"># 方便管理博客的Makefile</span></span><br><span class="line">|-- output               <span class="comment"># 静态文件生成目录</span></span><br><span class="line">|-- pelicanconf.py       <span class="comment"># 配置文件</span></span><br><span class="line">|-- publishconf.py       <span class="comment"># 发布用的配置文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>在 content 目录下新建文件夹，文章便会自动归类到该文件夹名的分类中。</p>
+<p>如果要建立页面（比如about页面），在 content 中新建文件夹 pages ，将文件放在该文件夹中即可。</p>
+<p>以下用 reStructuredText 来举例，当然也可以用 Markdown 。</p>
+<pre><code>Title
+#####
+
+:date: 2013-07-15
+:tags: tag1, tag2
+:category: misc      # 把这个rst文件放在content/misc/下的话, 可以省略这一行
+:author: Aken zhang  # 如果在pelicanconf.py文件中指定了作者，那么这一行可以省略
+:slug: test          # 这个值是指定生成页面的名称, 比如这个页面的最后生成的名称为test.html
+
+Blog具体内容...
+</code></pre><h3 id="生成Blog"><a href="#生成Blog" class="headerlink" title="生成Blog"></a>生成Blog</h3><p>生成Blog非常简单，只需要运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make html</span><br></pre></td></tr></table></figure>
+<p>即可在 output 目录下生成全站的页面。这时候只要把 output 下的所有文件上传至Web服务器就可以访问了。</p>
+<h3 id="使用Github来托管Blog"><a href="#使用Github来托管Blog" class="headerlink" title="使用Github来托管Blog"></a>使用Github来托管Blog</h3><p>Github pages 服务大概是目前最好用的免费静态页面托管服务了，还支持绑定顶级域名。虽然300MB的空间略小了点，但如果不大量上传图片，对于个人Blog来说还是足够的。再加上使用Git做版本控制，备份、回退都太方便了。</p>
+<p>大致说一下流程，具体就不细说了：</p>
+<ul>
+<li>首先注册一个 Github 的帐号。</li>
+<li>新建一个 repo ，注意这个 repo 一定要命名为 your_id.github.com ，否则不能成功。</li>
+<li>把 output 下的所有文件都上传到这个 repo 的 master 分支下。</li>
+<li>耐心等待10分钟，访问 your_id.github.com 就可以打开Blog了。</li>
+</ul>
+<h3 id="几点注意："><a href="#几点注意：" class="headerlink" title="几点注意："></a>几点注意：</h3><ul>
+<li>index.html 文件一定要放在 master 分支的根目录下，否则会找不到。</li>
+<li>如果要绑定顶级域名。在 repo 的根目录下新建一个名为 CNAME 的文件，文件里写上想要绑定的域名。然后在域名管理的后台设置A记录指向 Github 的IP 204.232.175.90 即可。</li>
+</ul>
+<h2 id="进一步的设置"><a href="#进一步的设置" class="headerlink" title="进一步的设置"></a>进一步的设置</h2><p>估计折腾到这一步的人都不无法忍受默认主题，我们如何更换主题，修改页面元素呢？</p>
+<p>Pelican 的所有配置都在 pelicanconf.py 文件里，我们打开这个文件，修改相应的配置，再重新运行 <code>make html</code> 生成一次页面就可以了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#from __future__ import unicode_literals</span></span><br><span class="line"></span><br><span class="line">AUTHOR = <span class="string">u'aken zhang'</span>  <span class="comment"># 默认作者名</span></span><br><span class="line">SITENAME = <span class="string">u':wq akenzc/blog'</span>  <span class="comment"># Blog名称</span></span><br><span class="line">SITEURL = <span class="string">'http://akenzc.com'</span>  <span class="comment"># 站点的URL</span></span><br><span class="line"></span><br><span class="line">TIMEZONE = <span class="string">'Asia/Shanghai'</span>  <span class="comment"># 时区</span></span><br><span class="line">DEFAULT_LANG = <span class="string">u'zh'</span>  <span class="comment"># 默认语言</span></span><br><span class="line">LOCALE = (<span class="string">"zh_CN"</span>)  <span class="comment"># 设置语言环境</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 日期格式</span></span><br><span class="line">DATE_FORMAT = &#123;</span><br><span class="line">     <span class="string">'zh'</span>:(<span class="string">'zh_CN'</span>,<span class="string">'%Y-%m-%d, %a'</span>),</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Feed generation is usually not desired when developing</span></span><br><span class="line"><span class="comment"># RSS设置</span></span><br><span class="line">FEED_ALL_RSS = <span class="string">'feeds/all.rss.xml'</span></span><br><span class="line">CATEGORY_FEED_ATOM = <span class="string">'feeds/%s.rss.xml'</span></span><br><span class="line"></span><br><span class="line">THEME = <span class="string">"pelican-octopress-theme"</span>  <span class="comment"># 主题设置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Blogroll</span></span><br><span class="line"><span class="comment"># 友情链接</span></span><br><span class="line">LINKS =  ((<span class="string">'Pelican'</span>, <span class="string">'http://getpelican.com/'</span>),</span><br><span class="line">          (<span class="string">'Python.org'</span>, <span class="string">'http://python.org/'</span>,)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Social widget</span></span><br><span class="line"><span class="comment"># 社交网站链接</span></span><br><span class="line">SOCIAL = ((<span class="string">'@akenzc'</span>, <span class="string">'http://weibo.com/akenzc'</span>),)</span><br><span class="line"></span><br><span class="line">DEFAULT_PAGINATION = <span class="number">10</span>  <span class="comment"># 默认每一页有多少篇文章</span></span><br><span class="line">DISQUS_SITENAME = <span class="string">u"akenblog"</span>  <span class="comment"># 设置disque评论插件的帐号</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Uncomment following line if you want document-relative URLs    when developing</span></span><br><span class="line"><span class="comment">#RELATIVE_URLS = True</span></span><br></pre></td></tr></table></figure>
+<p>详细的设置请参考 <a href="https://pelican.readthedocs.org/en/latest/settings.html" target="_blank" rel="external">https://pelican.readthedocs.org/en/latest/settings.html</a></p>
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>Pelican 更换主题非常方便，只要在 content 同级目录把主题下载下来，然后在 pelicanconf.py 配置文件中的 THEME 字段指定主题的路径和文件夹， 再 <code>make html</code> 重新生成就可以了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git://github.com/duilio/pelican-octopress-theme  <span class="comment"># 我现在使用的主题</span></span><br><span class="line">$ git <span class="built_in">clone</span> git://github.com/getpelican/pelican-theres  <span class="comment"># 更多的主题</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><p>如果想要使用插件则先要下载一份最新的插件，和更换主题类似同样在 content 同级目录先下载一份最新的插件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git://github.com/getpelican/pelican-plugins.git</span><br></pre></td></tr></table></figure>
+<p>下载完后，Blog目录下就会多一个 pelican-plugins 目录，然后打开 pelicanconf.py 配置文件中配置插件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">PLUGIN_PATH = <span class="string">u'pelican-plugins'</span>  <span class="comment"># 设置插件路径</span></span><br><span class="line">PLUGINS = [<span class="string">'sitemap'</span>, <span class="string">'related_posts'</span>, <span class="string">'random_article'</span>,               <span class="string">'neighbors'</span>]  <span class="comment"># 设置启用的插件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置sitemap 插件</span></span><br><span class="line">SITEMAP = &#123;</span><br><span class="line">     <span class="string">"format"</span>: <span class="string">"xml"</span>,</span><br><span class="line">     <span class="string">"priorities"</span>: &#123;</span><br><span class="line">        <span class="string">"articles"</span>: <span class="number">0.7</span>,</span><br><span class="line">        <span class="string">"indexes"</span>: <span class="number">0.5</span>,</span><br><span class="line">        <span class="string">"pages"</span>: <span class="number">0.3</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">     <span class="string">"changefreqs"</span>: &#123;</span><br><span class="line">        <span class="string">"articles"</span>: <span class="string">"monthly"</span>,</span><br><span class="line">        <span class="string">"indexes"</span>: <span class="string">"daily"</span>,</span><br><span class="line">        <span class="string">"pages"</span>: <span class="string">"monthly"</span>,</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机跳转到某日志</span></span><br><span class="line">RANDOM = <span class="string">'random.html'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 相关文章</span></span><br><span class="line">RELATED_POSTS_MAX = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>修改完后执行 <code>make html</code> 即可更新插件。</p>
+<h3 id="使用静态文件和静态目录"><a href="#使用静态文件和静态目录" class="headerlink" title="使用静态文件和静态目录"></a>使用静态文件和静态目录</h3><p>在 pelicanconf.py 里添加 <code>FILES_TO_COPY</code> 项就可以在每次生成html的时候把指定目录下的文件拷贝到 output 目录下。</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FILES_TO_COPY = (</span><br><span class="line">    (<span class="string">"extra/robots.txt"</span>, <span class="string">"robots.txt"</span>),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>上面的配置文件是指把 <code>extra/robots.txt</code> 文件拷贝到 <code>output/robots.txt</code> 。</p>
+<p>在 pelicanconf.py 里添加 <code>STATIC_PATHS</code> 项就可以吧指定的文件夹拷贝到 output 目录下，如果Blog里有图片，这种方法可以很方便的移动存放图片的目录。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STATIC_PATHS = [<span class="string">u"img"</span>]</span><br></pre></td></tr></table></figure>
+<p>上面的配置文件是指把 img 目录拷贝到 <code>output/static/</code> 下。</p>
+<h2 id="遇到的一些问题"><a href="#遇到的一些问题" class="headerlink" title="遇到的一些问题"></a>遇到的一些问题</h2><h3 id="DISQUS无法载入"><a href="#DISQUS无法载入" class="headerlink" title="DISQUS无法载入"></a>DISQUS无法载入</h3><p>上传到Web服务器后，评论插件DISQUS无法载入，报以下错误信息:</p>
+<blockquote>
+<p>We were unable to load Disqus. If you are a moderator please see our troubleshooting guide.</p>
+</blockquote>
+<p>解决办法是设置文件 pelicanconf.py 中的 <code>SITEURL</code> 不能为空，设置好站点URL即可。</p>
+]]></content>
+    </entry>
+    
+  
+  
+</search>

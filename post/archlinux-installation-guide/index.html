@@ -1,0 +1,1051 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="nas,linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title=":wq akenzc/blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1. 制作启动U盘1.1 下载最新镜像
+archlinux-2015.04.01-dual.iso">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Archlinux 安装备忘">
+<meta property="og:url" content="http://akenzc.com/post/archlinux-installation-guide/index.html">
+<meta property="og:site_name" content=":wq akenzc/blog">
+<meta property="og:description" content="1. 制作启动U盘1.1 下载最新镜像
+archlinux-2015.04.01-dual.iso">
+<meta property="og:updated_time" content="2015-04-08T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Archlinux 安装备忘">
+<meta name="twitter:description" content="1. 制作启动U盘1.1 下载最新镜像
+archlinux-2015.04.01-dual.iso">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://akenzc.com/post/archlinux-installation-guide/"/>
+
+  <title> Archlinux 安装备忘 | :wq akenzc/blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-80024212-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">:wq akenzc/blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Create something</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Archlinux 安装备忘
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-09T00:00:00+08:00" content="2015-04-09">
+              2015-04-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/archlinux-installation-guide/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/archlinux-installation-guide/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/post/archlinux-installation-guide/" class="leancloud_visitors" data-flag-title="Archlinux 安装备忘">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-制作启动U盘"><a href="#1-制作启动U盘" class="headerlink" title="1. 制作启动U盘"></a>1. 制作启动U盘</h1><h2 id="1-1-下载最新镜像"><a href="#1-1-下载最新镜像" class="headerlink" title="1.1 下载最新镜像"></a>1.1 下载最新镜像</h2><blockquote>
+<p><a href="http://mirrors.163.com/archlinux/iso/2015.04.01/archlinux-2015.04.01-dual.iso" target="_blank" rel="external">archlinux-2015.04.01-dual.iso</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-2-将镜像写入启动U盘（for-OSX）"><a href="#1-2-将镜像写入启动U盘（for-OSX）" class="headerlink" title="1.2 将镜像写入启动U盘（for OSX）"></a>1.2 将镜像写入启动U盘（for OSX）</h2><p>插入U盘，使用以下命令查看U盘挂载路径<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diskutil <span class="built_in">list</span></span><br></pre></td></tr></table></figure></p>
+<p>卸载磁盘<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diskutil unmountDisk <span class="meta-keyword">/dev/</span>disk2</span><br></pre></td></tr></table></figure></p>
+<p>写入镜像<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="selector-tag">dd</span> <span class="keyword">if</span>=image<span class="selector-class">.iso</span> of=/dev/rdisk2 bs=<span class="number">1</span>M</span><br></pre></td></tr></table></figure></p>
+<p>拔出U盘<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diskutil eject <span class="meta-keyword">/dev/</span>disk2</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-3-恢复U盘"><a href="#1-3-恢复U盘" class="headerlink" title="1.3 恢复U盘"></a>1.3 恢复U盘</h2><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dd count=<span class="number">1</span> bs=<span class="number">512</span> <span class="keyword">if</span>=<span class="regexp">/dev/zero</span> <span class="keyword">of</span>=<span class="regexp">/dev/disk</span>2 &amp;&amp; sync</span><br></pre></td></tr></table></figure>
+<h1 id="2-安装-Archlinux-基础系统"><a href="#2-安装-Archlinux-基础系统" class="headerlink" title="2. 安装 Archlinux 基础系统"></a>2. 安装 Archlinux 基础系统</h1><h2 id="2-1-U盘引导启动"><a href="#2-1-U盘引导启动" class="headerlink" title="2.1 U盘引导启动"></a>2.1 U盘引导启动</h2><p>插上安装U盘，选择从UEFI U盘启动。</p>
+<p><strong>注意</strong>启动时一定要选择UEFI的U盘作为首选启动项，否则后面安装可能会有问题。</p>
+<p>选择第一项，进入<code>Arch Linux archiso x86_64 UEFI CD</code></p>
+<h2 id="2-2-分区格式化"><a href="#2-2-分区格式化" class="headerlink" title="2.2 分区格式化"></a>2.2 分区格式化</h2><h3 id="2-2-1-分区方案"><a href="#2-2-1-分区方案" class="headerlink" title="2.2.1 分区方案"></a>2.2.1 分区方案</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">分区</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:right">大小</th>
+<th style="text-align:right">类型代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">/dev/sdf1</td>
+<td style="text-align:left">/boot/efi</td>
+<td style="text-align:right">512M</td>
+<td style="text-align:right">ef00</td>
+</tr>
+<tr>
+<td style="text-align:left">/dev/sdf2</td>
+<td style="text-align:left">/</td>
+<td style="text-align:right">28G</td>
+<td style="text-align:right">8300</td>
+</tr>
+<tr>
+<td style="text-align:left">/dev/sdf3</td>
+<td style="text-align:left">swap</td>
+<td style="text-align:right">4G</td>
+<td style="text-align:right">8200</td>
+</tr>
+<tr>
+<td style="text-align:left">/dev/sdf4</td>
+<td style="text-align:left">/home</td>
+<td style="text-align:right">87G</td>
+<td style="text-align:right">8300</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-2-2-建立新的分区表"><a href="#2-2-2-建立新的分区表" class="headerlink" title="2.2.2 建立新的分区表"></a>2.2.2 建立新的分区表</h3><p>使用parted命令来分区<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># parted /dev/sdf</span><br><span class="line"></span><br><span class="line">(parted) mklabel gpt</span><br><span class="line">(parted) mkpart ESP fat32 <span class="number">1</span>M <span class="number">513</span>M</span><br><span class="line">(parted) <span class="keyword">set</span> 1 boot <span class="comment">on</span></span><br><span class="line">(parted) mkpart <span class="comment">primary ext4 513M 30.5G</span></span><br><span class="line">(parted) mkpart <span class="comment">primary linux-swap 30.5G 34.5G</span></span><br><span class="line">(parted) mkpart <span class="comment">primary ext4 34.5G 100%</span></span><br><span class="line">(parted) quit</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-3-格式化分区"><a href="#2-2-3-格式化分区" class="headerlink" title="2.2.3 格式化分区"></a>2.2.3 格式化分区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkfs.vfat -F32 /dev/sdf1</span></span><br><span class="line"><span class="comment"># mkfs.ext4 /dev/sdf2</span></span><br><span class="line"><span class="comment"># mkswap /dev/sdf3</span></span><br><span class="line"><span class="comment"># swapon /dev/sdf3</span></span><br><span class="line"><span class="comment"># mkfs.ext4 /dev/sdf4</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-4-挂载分区："><a href="#2-2-4-挂载分区：" class="headerlink" title="2.2.4 挂载分区："></a>2.2.4 挂载分区：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mount /dev/sdf2 /mnt</span></span><br><span class="line"><span class="comment"># mkdir -p /mnt/boot</span></span><br><span class="line"><span class="comment"># mount /dev/sdf1 /mnt/boot</span></span><br><span class="line"><span class="comment"># mkdir -p /mnt/home</span></span><br><span class="line"><span class="comment"># mount /dev/sdf4 /mnt/home</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-3-选择软件源"><a href="#2-3-选择软件源" class="headerlink" title="2.3 选择软件源"></a>2.3 选择软件源</h2><p>编辑 <code>/etc/pacman.d/mirrorlist</code><br>将ustc源复制到最前面<br>因为默认编辑器是<code>vi</code>，使用方法为：复制<code>yy</code>，移动到首行<code>:1</code>，粘贴<code>p</code><br>然后用下面命令更新源：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># pacman -Syy</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-4-安装基本系统"><a href="#2-4-安装基本系统" class="headerlink" title="2.4 安装基本系统"></a>2.4 安装基本系统</h2><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacstrap -i /mnt <span class="keyword">base</span> <span class="keyword">base</span>-devel</span><br></pre></td></tr></table></figure>
+<h2 id="2-5-生成-fstab"><a href="#2-5-生成-fstab" class="headerlink" title="2.5 生成 fstab"></a>2.5 生成 fstab</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab</span></span><br><span class="line"><span class="meta"># cat /mnt/etc/fstab</span></span><br></pre></td></tr></table></figure>
+<p>注意，生成 <code>fstab</code> 后，务必检查一下内容是否正确。如果有问题，不要再运行 <code>genfstab</code>，直接手动编辑 <code>/mnt/etc/fstab</code> 文件。</p>
+<h2 id="2-6-切换到新系统"><a href="#2-6-切换到新系统" class="headerlink" title="2.6 切换到新系统"></a>2.6 切换到新系统</h2><p>基础系统已经安装完成，但是新安装的系统还需要一些配置工作，才能引导。<br>先 chroot 到新系统：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># arch-chroot /mnt /bin/bash</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-7-设置语言地区"><a href="#2-7-设置语言地区" class="headerlink" title="2.7 设置语言地区"></a>2.7 设置语言地区</h2><p>编辑<code>/etc/locale.gen</code>，去掉以下项目的注释：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">en_US<span class="selector-class">.UTF-8</span> UTF-<span class="number">8</span></span><br><span class="line">zh_CN<span class="selector-class">.GB18030</span> GB18030</span><br><span class="line">zh_CN<span class="selector-class">.GBK</span> GBK</span><br><span class="line">zh_CN<span class="selector-class">.UTF-8</span> UTF-<span class="number">8</span></span><br><span class="line">zh_CN GB2312</span><br></pre></td></tr></table></figure></p>
+<p>然后运行：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># locale-gen</span></span><br></pre></td></tr></table></figure></p>
+<p>最后，编辑<code>/etc/locale.conf</code>：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：不要在这里把系统全局设置成中文，因为终端无法显示中文，请单独将桌面环境设置为中文。</p>
+<h2 id="2-8-设置时区"><a href="#2-8-设置时区" class="headerlink" title="2.8 设置时区"></a>2.8 设置时区</h2><p>将 <code>/etc/localtime</code> 软链接到 <code>/usr/share/zoneinfo/Zone/SubZone</code>。其中 Zone 和 Subzone 替换为所在时区，例如：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ln -s <span class="regexp">/usr/</span>share<span class="regexp">/zoneinfo/</span>Asia<span class="regexp">/Shanghai /</span>etc<span class="regexp">/localtime</span></span><br></pre></td></tr></table></figure></p>
+<p>利用 ntp 自动校时：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># pacman -S ntp</span></span><br><span class="line"><span class="meta"># ntpdate time.nist.gov</span></span><br></pre></td></tr></table></figure></p>
+<p>将系统时间写入硬件时钟：<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span> <span class="comment">hwclock</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">systohc</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">utc</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-9-设置主机名"><a href="#2-9-设置主机名" class="headerlink" title="2.9 设置主机名"></a>2.9 设置主机名</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># echo myhostname &gt; /etc/hostname</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-10-启用-dhcpcd-服务"><a href="#2-10-启用-dhcpcd-服务" class="headerlink" title="2.10 启用 dhcpcd 服务"></a>2.10 启用 dhcpcd 服务</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># systemctl enable dhcpcd.service</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-11-创建ramdisk"><a href="#2-11-创建ramdisk" class="headerlink" title="2.11 创建ramdisk"></a>2.11 创建ramdisk</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># mkinitcpio –p linux</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-12-设置-Root-密码"><a href="#2-12-设置-Root-密码" class="headerlink" title="2.12 设置 Root 密码"></a>2.12 设置 Root 密码</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># passwd</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-13-安装和配置-Bootloader"><a href="#2-13-安装和配置-Bootloader" class="headerlink" title="2.13 安装和配置 Bootloader"></a>2.13 安装和配置 Bootloader</h2><p>此方法只能用于支持<code>UEFI</code>的主板，如不支持<code>UEFI</code>，请查看Archlinux的Wiki。</p>
+<p>选择<code>Gummiboot</code>作为启动器，如要选择<code>Grub</code>同样请查看Archlinux的Wiki。</p>
+<p>首先安装 <code>dosfstools</code> 以便在安装之后继续维护 EFI 系统分区。安装<code>efibootmgr</code> 创建可启动的 .efi 文件(bootmanager 安装脚本会使用)</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># pacman -S dosfstools efibootmgr</span></span><br></pre></td></tr></table></figure>
+<p><strong>强烈建议</strong>将 EFI 系统分区挂载到 <code>/boot</code>，这样可以自动更新 Gummiboot。<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># pacman -S gummiboot</span></span><br><span class="line"><span class="meta"># gummiboot --path=/boot install</span></span><br></pre></td></tr></table></figure></p>
+<p>Gummiboot 会自动检测 <code>bootx64.efi</code> 需要的文件并放入 <code>/boot/EFI/Boot</code></p>
+<p>创建 <code>/boot/loader/entries/arch.conf</code> 并添加以下内容：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title          Arch Linux</span><br><span class="line">linux          /vmlinuz-linux</span><br><span class="line">initrd         /initramfs-linux<span class="selector-class">.img</span></span><br><span class="line">options        root=/dev/sdf2 rw</span><br></pre></td></tr></table></figure></p>
+<p>然后创建 <code>/boot/loader/loader.conf</code>，并写入下面配置：<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">default</span>  arch</span><br><span class="line"><span class="title">timeout</span>  <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-14-卸载分区并重启系统"><a href="#2-14-卸载分区并重启系统" class="headerlink" title="2.14 卸载分区并重启系统"></a>2.14 卸载分区并重启系统</h2><p>现在新系统已经准备好第一次引导了，先退出 chroot 环境：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># exit</span></span><br></pre></td></tr></table></figure></p>
+<p>然后，卸载分区并重启系统：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>umount -R /mnt</span><br><span class="line"><span class="variable">$ </span>reboot</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>，reboot前先拔掉u盘</p>
+<h1 id="3-配置系统和安装软件"><a href="#3-配置系统和安装软件" class="headerlink" title="3 配置系统和安装软件"></a>3 配置系统和安装软件</h1><h2 id="3-1-创建帐号"><a href="#3-1-创建帐号" class="headerlink" title="3.1 创建帐号"></a>3.1 创建帐号</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># useradd aken</span></span><br><span class="line"><span class="meta"># passwd aken</span></span><br><span class="line"><span class="meta"># mkdir -p /home/aken</span></span><br><span class="line"><span class="meta"># chmod 755 /home/aken</span></span><br><span class="line"><span class="meta"># chown aken:aken /home/aken</span></span><br></pre></td></tr></table></figure>
+<p>修改visudo，使得普通帐号可以免密码sudo<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># visudo</span></span><br></pre></td></tr></table></figure></p>
+<p>接下来的所有操作均使用普通帐号</p>
+<h2 id="3-2-安装vim"><a href="#3-2-安装vim" class="headerlink" title="3.2 安装vim"></a>3.2 安装vim</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -<span class="keyword">S</span> vim</span><br></pre></td></tr></table></figure>
+<h2 id="3-3-安装ssh"><a href="#3-3-安装ssh" class="headerlink" title="3.3 安装ssh"></a>3.3 安装ssh</h2><p>先安装ssh，并配置密钥，以便远程安装<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo pacman -S openssh</span><br><span class="line"><span class="variable">$ </span>ssh-keygen -t rsa</span><br><span class="line"><span class="variable">$ </span>sudo systemctl start sshd</span><br><span class="line"><span class="variable">$ </span>sudo systemctl enable sshd</span><br></pre></td></tr></table></figure></p>
+<p>为了防止ssh长时间自动断开，及防止被攻击，需要修改config文件<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim <span class="meta-keyword">/etc/</span>ssh/sshd_config</span><br></pre></td></tr></table></figure></p>
+<p>修改以下参数并保存<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 下面三条为防止ssh长时间自动断开</span></span><br><span class="line">TCPKeepAlive yes</span><br><span class="line">ClientAliveCountMax <span class="number">5</span></span><br><span class="line">ClientAliveInterval <span class="number">300</span></span><br><span class="line"><span class="meta"># 防止被攻击，修改SSH监听端口</span></span><br><span class="line">Port <span class="number">2345</span></span><br><span class="line"><span class="meta"># 防止漏洞仅允许SSH协议版本2</span></span><br><span class="line">Protocol <span class="number">2</span> </span><br><span class="line"><span class="meta"># 禁止root用户登录</span></span><br><span class="line">PermitRootLogin no</span><br></pre></td></tr></table></figure></p>
+<p>以下所有操作可在远程登陆。</p>
+<h2 id="3-4-安装Yaourt"><a href="#3-4-安装Yaourt" class="headerlink" title="3.4 安装Yaourt"></a>3.4 安装Yaourt</h2><p>添加Yaourt源至 <code>/etc/pacman.conf</code><br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[archlinuxfr]</span></span><br><span class="line"><span class="attr">SigLevel</span> = Never</span><br><span class="line"><span class="attr">Server</span> = http://repo.archlinux.fr/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></p>
+<p>同步并安装<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo pacman -Sy</span><br><span class="line"><span class="variable">$ </span>sudo pacman -S yaourt</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-5-安装zsh"><a href="#3-5-安装zsh" class="headerlink" title="3.5 安装zsh"></a>3.5 安装zsh</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yaourt -S zsh git</span><br><span class="line"><span class="variable">$ </span> chsh -s <span class="variable">$(</span>which zsh)</span><br><span class="line"><span class="variable">$ </span>curl -L <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-6-安装网络工具"><a href="#3-6-安装网络工具" class="headerlink" title="3.6 安装网络工具"></a>3.6 安装网络工具</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -<span class="keyword">S</span> net-tools dnsutils inetutils iproute2</span><br></pre></td></tr></table></figure>
+<h2 id="3-7-挂载硬盘"><a href="#3-7-挂载硬盘" class="headerlink" title="3.7 挂载硬盘"></a>3.7 挂载硬盘</h2><p>先查看所有硬盘的UUID<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l <span class="meta-keyword">/dev/</span>disk<span class="meta-keyword">/by-uuid/</span></span><br></pre></td></tr></table></figure></p>
+<p>再写入/etc/fstab文件<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UUID=<span class="number">410a1569</span>-<span class="number">3d51-4626</span>-ac7b-d3b<span class="number">02c6642b9</span>       /home/aken/mnt/vol1 ext4    defaults <span class="number">0</span>       <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="3-8-安装KODI"><a href="#3-8-安装KODI" class="headerlink" title="3.8 安装KODI"></a>3.8 安装KODI</h2><p>安装 X 窗口管理系统<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -S <span class="keyword">xorg-server </span><span class="keyword">xorg-xinit </span><span class="keyword">xorg-utils </span><span class="keyword">xorg-server-utils</span></span><br></pre></td></tr></table></figure></p>
+<p>安装声卡驱动<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -S alsa-utils alsa-plugins mesa mesa-demos <span class="keyword">xorg-twm </span><span class="keyword">xorg-xclock </span>xterm</span><br></pre></td></tr></table></figure></p>
+<p>装显卡通用驱动（vesa）：<br><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -<span class="keyword">S</span> xf86-video-vesa xf86-video-modesetting xf86-video-fbdev xf86-video-intel</span><br></pre></td></tr></table></figure></p>
+<p>运行<code>alsamixer</code>，将master音量开到最大</p>
+<p>安装kodi<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yaourt -S kodi  kodi-standalone-service</span><br><span class="line"><span class="variable">$ </span>sudo systemctl enable kodi</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-9-安装transmission"><a href="#3-9-安装transmission" class="headerlink" title="3.9 安装transmission"></a>3.9 安装transmission</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yaourt -S transmission-cli</span><br><span class="line"><span class="variable">$ </span>sudo systemctl enable transmission</span><br><span class="line"><span class="variable">$ </span>sudo systemctl start transmission</span><br></pre></td></tr></table></figure>
+<p>先杀掉所有transmission相关进程<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">ps</span> aux|<span class="keyword">grep</span> transmission</span><br></pre></td></tr></table></figure></p>
+<p>再修改配置文件（必须启动一次才会初始化这个配置文件）<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /var/<span class="class"><span class="keyword">lib</span>/<span class="title">transmission</span>/.<span class="title">config</span>/<span class="title">transmission</span>-<span class="title">daemon</span>/<span class="title">settings</span>.<span class="title">json</span></span></span><br></pre></td></tr></table></figure></p>
+<p>将默认值修改为以下，其中rpc-password直接填入密码即可，保存后会自动变成hash。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">rpc-whitelist-<span class="string">enabled:</span>     <span class="literal">false</span></span><br><span class="line"><span class="string">umask:</span>     <span class="number">0</span></span><br><span class="line">download-<span class="string">dir:</span>     <span class="regexp">/home/</span>aken<span class="regexp">/vol1/</span>movie</span><br><span class="line">utp-<span class="string">enabled:</span>     <span class="literal">false</span></span><br><span class="line">dht-<span class="string">enabled:</span>     <span class="literal">false</span></span><br><span class="line">pex-<span class="string">enabled:</span>     <span class="literal">false</span></span><br><span class="line">speed-limit-<span class="string">up:</span>     <span class="number">300</span></span><br><span class="line">speed-limit-up-<span class="string">enabled:</span>     <span class="literal">true</span></span><br><span class="line">cache-size-<span class="string">mb:</span>     <span class="number">1024</span></span><br><span class="line"><span class="string">"rpc-authentication-required"</span>:  <span class="literal">true</span>,</span><br><span class="line"><span class="string">"rpc-password"</span>: <span class="string">"&#123;4d7929e90bd2141fad7fc2bdea06f057a6bf6f43yc67tGuh"</span>,</span><br><span class="line"><span class="string">"rpc-username"</span>: <span class="string">"aken"</span>,</span><br></pre></td></tr></table></figure></p>
+<p>修改完成，退出重启transmission即可。</p>
+<h2 id="3-10-设置节能模式"><a href="#3-10-设置节能模式" class="headerlink" title="3.10 设置节能模式"></a>3.10 设置节能模式</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -<span class="keyword">S</span> hdparm hddtemp lm_sensors</span><br><span class="line">$ sudo hdparm -<span class="keyword">S</span> <span class="number">255</span> /dev/sda</span><br></pre></td></tr></table></figure>
+<h2 id="3-11-安装samba"><a href="#3-11-安装samba" class="headerlink" title="3.11 安装samba"></a>3.11 安装samba</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yaourt -<span class="keyword">S</span> samba</span><br></pre></td></tr></table></figure>
+<p>将以下内容放入/etc/samba/smb.conf文件中<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line"><span class="attr">workgroup</span> = WORKGROUP</span><br><span class="line">server <span class="attr">string</span> = Samba Server</span><br><span class="line"><span class="attr">security</span> = user</span><br><span class="line"><span class="built_in">map</span> to <span class="attr">guest</span> = Bad User</span><br><span class="line">guest <span class="attr">account</span> = nobody</span><br><span class="line">log <span class="attr">file</span> = /var/log/samba/log.%m</span><br><span class="line">max log <span class="attr">size</span> = <span class="number">50</span></span><br><span class="line">dns <span class="attr">proxy</span> = No</span><br><span class="line">wins <span class="attr">support</span> = Yes</span><br><span class="line">guest <span class="attr">ok</span> = Yes</span><br><span class="line"></span><br><span class="line">[aken-NAS]</span><br><span class="line"><span class="attr">path</span> = /home/aken/mnt</span><br><span class="line">read <span class="attr">only</span> = No</span><br><span class="line">create <span class="attr">mask</span> = <span class="number">0664</span></span><br><span class="line">directory <span class="attr">mask</span> = <span class="number">0775</span></span><br></pre></td></tr></table></figure></p>
+<p>设置开机启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl <span class="built_in">enable</span> smbd nmbd</span><br></pre></td></tr></table></figure></p>
+<p>启动samba<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl <span class="literal">start</span> smbd nmbd</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-12-ddns设置"><a href="#3-12-ddns设置" class="headerlink" title="3.12 ddns设置"></a>3.12 ddns设置</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yaourt -S lynx cronie</span><br><span class="line"><span class="variable">$ </span>crontab -e</span><br><span class="line">*<span class="regexp">/10 * * * * /home</span><span class="regexp">/aken/bin</span><span class="regexp">/update_ddns.sh &gt;&gt; /home</span><span class="regexp">/aken/bin</span><span class="regexp">/log/ddns</span>.log</span><br></pre></td></tr></table></figure>
+<h1 id="4-一些脚本"><a href="#4-一些脚本" class="headerlink" title="4 一些脚本"></a>4 一些脚本</h1><p>➜  bin  cat sleep.sh<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop kodi</span><br><span class="line">sudo hdparm -Y <span class="meta-keyword">/dev/</span>sdb</span><br><span class="line">sudo hdparm -Y <span class="meta-keyword">/dev/</span>sdc</span><br><span class="line">sudo hdparm -Y <span class="meta-keyword">/dev/</span>sdd</span><br><span class="line">sudo hdparm -Y <span class="meta-keyword">/dev/</span>sde</span><br></pre></td></tr></table></figure></p>
+<p>➜  bin  cat temp.sh<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sensors</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sda</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sdb</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sdc</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sdd</span><br><span class="line">sudo hddtemp <span class="meta-keyword">/dev/</span>sde</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sda</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sdb</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sdc</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sdd</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sde</span><br><span class="line">sudo hdparm -C <span class="meta-keyword">/dev/</span>sdf</span><br></pre></td></tr></table></figure></p>
+<p>➜  bin  cat update_ddns.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line">ipaddr=`lynx -mime_header -auth=akenzc:password <span class="string">"http://www.3322.org/dyndns/update?system=dyndns&amp;hostname=hostname"</span> | egrep <span class="string">"[0-9]+/.[0-9]+/.[0-9]+/.[0-9]+"</span>|awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line"></span><br><span class="line">date=`date <span class="string">"+%y-%m-%d %H:%M"</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$date</span> <span class="variable">$ipaddr</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nas/" rel="tag">#nas</a>
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/nas-system-disk-upgrade/" rel="next" title="NAS系统盘升级">
+                <i class="fa fa-chevron-left"></i> NAS系统盘升级
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/windows-8.1-installation-guide/" rel="prev" title="Windows 8.1 安装备忘">
+                Windows 8.1 安装备忘 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Chi Zhang" />
+          <p class="site-author-name" itemprop="name">Chi Zhang</p>
+          <p class="site-description motion-element" itemprop="description">hehehe</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/akenzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/akenzc" target="_blank" title="Twiter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Twiter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-制作启动U盘"><span class="nav-number">1.</span> <span class="nav-text">1. 制作启动U盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-下载最新镜像"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 下载最新镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-将镜像写入启动U盘（for-OSX）"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 将镜像写入启动U盘（for OSX）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-恢复U盘"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 恢复U盘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-安装-Archlinux-基础系统"><span class="nav-number">2.</span> <span class="nav-text">2. 安装 Archlinux 基础系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-U盘引导启动"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 U盘引导启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-分区格式化"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 分区格式化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-分区方案"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1 分区方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-建立新的分区表"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.2 建立新的分区表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-格式化分区"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.2.3 格式化分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-挂载分区："><span class="nav-number">2.2.4.</span> <span class="nav-text">2.2.4 挂载分区：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-选择软件源"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 选择软件源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-安装基本系统"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 安装基本系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-生成-fstab"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 生成 fstab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-切换到新系统"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 切换到新系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-设置语言地区"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 设置语言地区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-设置时区"><span class="nav-number">2.8.</span> <span class="nav-text">2.8 设置时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-设置主机名"><span class="nav-number">2.9.</span> <span class="nav-text">2.9 设置主机名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-10-启用-dhcpcd-服务"><span class="nav-number">2.10.</span> <span class="nav-text">2.10 启用 dhcpcd 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-11-创建ramdisk"><span class="nav-number">2.11.</span> <span class="nav-text">2.11 创建ramdisk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-12-设置-Root-密码"><span class="nav-number">2.12.</span> <span class="nav-text">2.12 设置 Root 密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-13-安装和配置-Bootloader"><span class="nav-number">2.13.</span> <span class="nav-text">2.13 安装和配置 Bootloader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-14-卸载分区并重启系统"><span class="nav-number">2.14.</span> <span class="nav-text">2.14 卸载分区并重启系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-配置系统和安装软件"><span class="nav-number">3.</span> <span class="nav-text">3 配置系统和安装软件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-创建帐号"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 创建帐号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-安装vim"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 安装vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-安装ssh"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 安装ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-安装Yaourt"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 安装Yaourt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-安装zsh"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 安装zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-安装网络工具"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 安装网络工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-挂载硬盘"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 挂载硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-安装KODI"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 安装KODI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-安装transmission"><span class="nav-number">3.9.</span> <span class="nav-text">3.9 安装transmission</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-设置节能模式"><span class="nav-number">3.10.</span> <span class="nav-text">3.10 设置节能模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-11-安装samba"><span class="nav-number">3.11.</span> <span class="nav-text">3.11 安装samba</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-12-ddns设置"><span class="nav-number">3.12.</span> <span class="nav-text">3.12 ddns设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-一些脚本"><span class="nav-number">4.</span> <span class="nav-text">4 一些脚本</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2010 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chi Zhang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'akenblog';
+      var disqus_identifier = 'post/archlinux-installation-guide/';
+      var disqus_title = "Archlinux 安装备忘";
+      var disqus_url = 'http://akenzc.com/post/archlinux-installation-guide/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7SW0u1Q3jqgcfJE6KvrmJi5J-gzGzoHsz", "t1a0dX3tIIYOyRL1EI6vhh1v");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

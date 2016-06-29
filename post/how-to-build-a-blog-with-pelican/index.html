@@ -1,0 +1,1013 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="blog,pelican," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title=":wq akenzc/blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="这篇是我之前用Pelican搭建Blog时写的文章，虽然现在已经迁移到Farbox来了，但还是转过来留存吧。
+什么是静态Blog一直以来搭建独立Blog的首选只有 Wordpress ，不但安装快捷简单，还有无数的插件和主题。甚至有的虚拟空间的运营商还提供一键安装脚本，直接把搭建独立Blog的门槛拉到了0。但是 Wordpress 这种 PHP+Mysql 的方式就是最优的选择嘛？
+NO！我需要的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Pelican搭建Blog">
+<meta property="og:url" content="http://akenzc.com/post/how-to-build-a-blog-with-pelican/index.html">
+<meta property="og:site_name" content=":wq akenzc/blog">
+<meta property="og:description" content="这篇是我之前用Pelican搭建Blog时写的文章，虽然现在已经迁移到Farbox来了，但还是转过来留存吧。
+什么是静态Blog一直以来搭建独立Blog的首选只有 Wordpress ，不但安装快捷简单，还有无数的插件和主题。甚至有的虚拟空间的运营商还提供一键安装脚本，直接把搭建独立Blog的门槛拉到了0。但是 Wordpress 这种 PHP+Mysql 的方式就是最优的选择嘛？
+NO！我需要的">
+<meta property="og:updated_time" content="2013-07-14T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Pelican搭建Blog">
+<meta name="twitter:description" content="这篇是我之前用Pelican搭建Blog时写的文章，虽然现在已经迁移到Farbox来了，但还是转过来留存吧。
+什么是静态Blog一直以来搭建独立Blog的首选只有 Wordpress ，不但安装快捷简单，还有无数的插件和主题。甚至有的虚拟空间的运营商还提供一键安装脚本，直接把搭建独立Blog的门槛拉到了0。但是 Wordpress 这种 PHP+Mysql 的方式就是最优的选择嘛？
+NO！我需要的">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://akenzc.com/post/how-to-build-a-blog-with-pelican/"/>
+
+  <title> 使用Pelican搭建Blog | :wq akenzc/blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-80024212-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">:wq akenzc/blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Create something</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用Pelican搭建Blog
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-07-15T00:00:00+08:00" content="2013-07-15">
+              2013-07-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/how-to-build-a-blog-with-pelican/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/how-to-build-a-blog-with-pelican/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/post/how-to-build-a-blog-with-pelican/" class="leancloud_visitors" data-flag-title="使用Pelican搭建Blog">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇是我之前用Pelican搭建Blog时写的文章，虽然现在已经迁移到Farbox来了，但还是转过来留存吧。</p>
+<h2 id="什么是静态Blog"><a href="#什么是静态Blog" class="headerlink" title="什么是静态Blog"></a>什么是静态Blog</h2><p>一直以来搭建独立Blog的首选只有 Wordpress ，不但安装快捷简单，还有无数的插件和主题。甚至有的虚拟空间的运营商还提供一键安装脚本，直接把搭建独立Blog的门槛拉到了0。但是 Wordpress 这种 PHP+Mysql 的方式就是最优的选择嘛？</p>
+<p>NO！我需要的只是一个简单的Blog啊，我只要把页面静态的展示出来就可以了，真心不需要那些复杂的功能啊。还有 Wordpress 的编辑器实在是太麻烦太难用了，作为一个坚定的 VIM 党，能用 VIM 写Blog是一件多么幸福的事情啊。最后，找一个免费且稳定的静态空间实在是太容易了，但是找一个免费或稳定的 PHP+Mysql 空间我就只能呵呵呵了。</p>
+<p>看来看去和我一样需求的人还真不少， Github 中随便一搜 static blog 就会发现一堆类似 Pelican 的静态Blog生成工具。</p>
+<a id="more"></a>
+<h2 id="静态Blog生成工具的好处："><a href="#静态Blog生成工具的好处：" class="headerlink" title="静态Blog生成工具的好处："></a>静态Blog生成工具的好处：</h2><ul>
+<li><p>静态，对托管空间没有要求，只要支持Web服务即可，甚至可以放在 Github 或 Gitbucket 上。</p>
+</li>
+<li><p>支持 reStructuredText 和 Markdown 语法，这种所想即所得的标记语言加上 VIM ，写Blog真心享受啊。</p>
+</li>
+<li><p>管理，日志都是文本文件，可以用 Git 方便的管理、进行版本控制。妈妈再也不用担心我的Blog数据丢失了。</p>
+</li>
+<li><p>内嵌代码支持，使用 pygments 这么棒的工具就不用多说了。</p>
+</li>
+</ul>
+<h2 id="为什么选择Pelican"><a href="#为什么选择Pelican" class="headerlink" title="为什么选择Pelican"></a>为什么选择Pelican</h2><p>其实我最早知道的是 Octopress ，但是我对 Ruby 实在是不熟，又没有兴趣为了搭个Blog花时间去研究 Ruby ，于是就在 Github 上去找 Python 对应的解决方案，还真发现了不少。但是要么用的人少，要么不支持 reStructuredText 标记语言。为了少折腾，我还是选了用的人最多的，最流行的 Pelican 。</p>
+<h3 id="安装Pelican"><a href="#安装Pelican" class="headerlink" title="安装Pelican"></a>安装Pelican</h3><p>官方建议在 virtualenv 下使用 Pelican 。首先安装 virtualenv，并建立 Pelican virtualenv。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install virtualenv</span><br><span class="line">$ virtualenv pelican</span><br><span class="line">$ <span class="built_in">cd</span> pelican</span><br><span class="line">$ <span class="built_in">source</span> bin/activate</span><br></pre></td></tr></table></figure>
+<p>如果此时 shell 提示符前面多了 (pelican) 这个提示，这就说明已经是在虚拟环境中，在这个环境中可以安装任意的 Python 库，而不用担心会把系统自带的 Python 库搞乱。</p>
+<h3 id="从-Github-克隆最新代码安装-Pelican"><a href="#从-Github-克隆最新代码安装-Pelican" class="headerlink" title="从 Github 克隆最新代码安装 Pelican"></a>从 Github 克隆最新代码安装 Pelican</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git://github.com/getpelican/pelican.git</span><br><span class="line">$ <span class="built_in">cd</span> pelican</span><br><span class="line">$ python setup.py install</span><br></pre></td></tr></table></figure>
+<p>到此， Pelican 就安装好了。</p>
+<h3 id="新建Blog"><a href="#新建Blog" class="headerlink" title="新建Blog"></a>新建Blog</h3><p>创建一个文件夹新建Blog</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir myblog</span><br><span class="line">$ <span class="built_in">cd</span> myblog</span><br><span class="line">$ pelican-quickstart</span><br></pre></td></tr></table></figure>
+<p>根据自身情况回答完所有问题后会生成下列文件：:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- content              <span class="comment"># 所有的文章和图片都放在此目录</span></span><br><span class="line">|-- develop_server.sh    <span class="comment"># 用于开启测试服务器</span></span><br><span class="line">|-- Makefile             <span class="comment"># 方便管理博客的Makefile</span></span><br><span class="line">|-- output               <span class="comment"># 静态文件生成目录</span></span><br><span class="line">|-- pelicanconf.py       <span class="comment"># 配置文件</span></span><br><span class="line">|-- publishconf.py       <span class="comment"># 发布用的配置文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>在 content 目录下新建文件夹，文章便会自动归类到该文件夹名的分类中。</p>
+<p>如果要建立页面（比如about页面），在 content 中新建文件夹 pages ，将文件放在该文件夹中即可。</p>
+<p>以下用 reStructuredText 来举例，当然也可以用 Markdown 。</p>
+<pre><code>Title
+#####
+
+:date: 2013-07-15
+:tags: tag1, tag2
+:category: misc      # 把这个rst文件放在content/misc/下的话, 可以省略这一行
+:author: Aken zhang  # 如果在pelicanconf.py文件中指定了作者，那么这一行可以省略
+:slug: test          # 这个值是指定生成页面的名称, 比如这个页面的最后生成的名称为test.html
+
+Blog具体内容...
+</code></pre><h3 id="生成Blog"><a href="#生成Blog" class="headerlink" title="生成Blog"></a>生成Blog</h3><p>生成Blog非常简单，只需要运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make html</span><br></pre></td></tr></table></figure>
+<p>即可在 output 目录下生成全站的页面。这时候只要把 output 下的所有文件上传至Web服务器就可以访问了。</p>
+<h3 id="使用Github来托管Blog"><a href="#使用Github来托管Blog" class="headerlink" title="使用Github来托管Blog"></a>使用Github来托管Blog</h3><p>Github pages 服务大概是目前最好用的免费静态页面托管服务了，还支持绑定顶级域名。虽然300MB的空间略小了点，但如果不大量上传图片，对于个人Blog来说还是足够的。再加上使用Git做版本控制，备份、回退都太方便了。</p>
+<p>大致说一下流程，具体就不细说了：</p>
+<ul>
+<li>首先注册一个 Github 的帐号。</li>
+<li>新建一个 repo ，注意这个 repo 一定要命名为 your_id.github.com ，否则不能成功。</li>
+<li>把 output 下的所有文件都上传到这个 repo 的 master 分支下。</li>
+<li>耐心等待10分钟，访问 your_id.github.com 就可以打开Blog了。</li>
+</ul>
+<h3 id="几点注意："><a href="#几点注意：" class="headerlink" title="几点注意："></a>几点注意：</h3><ul>
+<li>index.html 文件一定要放在 master 分支的根目录下，否则会找不到。</li>
+<li>如果要绑定顶级域名。在 repo 的根目录下新建一个名为 CNAME 的文件，文件里写上想要绑定的域名。然后在域名管理的后台设置A记录指向 Github 的IP 204.232.175.90 即可。</li>
+</ul>
+<h2 id="进一步的设置"><a href="#进一步的设置" class="headerlink" title="进一步的设置"></a>进一步的设置</h2><p>估计折腾到这一步的人都不无法忍受默认主题，我们如何更换主题，修改页面元素呢？</p>
+<p>Pelican 的所有配置都在 pelicanconf.py 文件里，我们打开这个文件，修改相应的配置，再重新运行 <code>make html</code> 生成一次页面就可以了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#from __future__ import unicode_literals</span></span><br><span class="line"></span><br><span class="line">AUTHOR = <span class="string">u'aken zhang'</span>  <span class="comment"># 默认作者名</span></span><br><span class="line">SITENAME = <span class="string">u':wq akenzc/blog'</span>  <span class="comment"># Blog名称</span></span><br><span class="line">SITEURL = <span class="string">'http://akenzc.com'</span>  <span class="comment"># 站点的URL</span></span><br><span class="line"></span><br><span class="line">TIMEZONE = <span class="string">'Asia/Shanghai'</span>  <span class="comment"># 时区</span></span><br><span class="line">DEFAULT_LANG = <span class="string">u'zh'</span>  <span class="comment"># 默认语言</span></span><br><span class="line">LOCALE = (<span class="string">"zh_CN"</span>)  <span class="comment"># 设置语言环境</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 日期格式</span></span><br><span class="line">DATE_FORMAT = &#123;</span><br><span class="line">     <span class="string">'zh'</span>:(<span class="string">'zh_CN'</span>,<span class="string">'%Y-%m-%d, %a'</span>),</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Feed generation is usually not desired when developing</span></span><br><span class="line"><span class="comment"># RSS设置</span></span><br><span class="line">FEED_ALL_RSS = <span class="string">'feeds/all.rss.xml'</span></span><br><span class="line">CATEGORY_FEED_ATOM = <span class="string">'feeds/%s.rss.xml'</span></span><br><span class="line"></span><br><span class="line">THEME = <span class="string">"pelican-octopress-theme"</span>  <span class="comment"># 主题设置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Blogroll</span></span><br><span class="line"><span class="comment"># 友情链接</span></span><br><span class="line">LINKS =  ((<span class="string">'Pelican'</span>, <span class="string">'http://getpelican.com/'</span>),</span><br><span class="line">          (<span class="string">'Python.org'</span>, <span class="string">'http://python.org/'</span>,)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Social widget</span></span><br><span class="line"><span class="comment"># 社交网站链接</span></span><br><span class="line">SOCIAL = ((<span class="string">'@akenzc'</span>, <span class="string">'http://weibo.com/akenzc'</span>),)</span><br><span class="line"></span><br><span class="line">DEFAULT_PAGINATION = <span class="number">10</span>  <span class="comment"># 默认每一页有多少篇文章</span></span><br><span class="line">DISQUS_SITENAME = <span class="string">u"akenblog"</span>  <span class="comment"># 设置disque评论插件的帐号</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Uncomment following line if you want document-relative URLs    when developing</span></span><br><span class="line"><span class="comment">#RELATIVE_URLS = True</span></span><br></pre></td></tr></table></figure>
+<p>详细的设置请参考 <a href="https://pelican.readthedocs.org/en/latest/settings.html" target="_blank" rel="external">https://pelican.readthedocs.org/en/latest/settings.html</a></p>
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>Pelican 更换主题非常方便，只要在 content 同级目录把主题下载下来，然后在 pelicanconf.py 配置文件中的 THEME 字段指定主题的路径和文件夹， 再 <code>make html</code> 重新生成就可以了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git://github.com/duilio/pelican-octopress-theme  <span class="comment"># 我现在使用的主题</span></span><br><span class="line">$ git <span class="built_in">clone</span> git://github.com/getpelican/pelican-theres  <span class="comment"># 更多的主题</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><p>如果想要使用插件则先要下载一份最新的插件，和更换主题类似同样在 content 同级目录先下载一份最新的插件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git://github.com/getpelican/pelican-plugins.git</span><br></pre></td></tr></table></figure>
+<p>下载完后，Blog目录下就会多一个 pelican-plugins 目录，然后打开 pelicanconf.py 配置文件中配置插件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">PLUGIN_PATH = <span class="string">u'pelican-plugins'</span>  <span class="comment"># 设置插件路径</span></span><br><span class="line">PLUGINS = [<span class="string">'sitemap'</span>, <span class="string">'related_posts'</span>, <span class="string">'random_article'</span>,               <span class="string">'neighbors'</span>]  <span class="comment"># 设置启用的插件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置sitemap 插件</span></span><br><span class="line">SITEMAP = &#123;</span><br><span class="line">     <span class="string">"format"</span>: <span class="string">"xml"</span>,</span><br><span class="line">     <span class="string">"priorities"</span>: &#123;</span><br><span class="line">        <span class="string">"articles"</span>: <span class="number">0.7</span>,</span><br><span class="line">        <span class="string">"indexes"</span>: <span class="number">0.5</span>,</span><br><span class="line">        <span class="string">"pages"</span>: <span class="number">0.3</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">     <span class="string">"changefreqs"</span>: &#123;</span><br><span class="line">        <span class="string">"articles"</span>: <span class="string">"monthly"</span>,</span><br><span class="line">        <span class="string">"indexes"</span>: <span class="string">"daily"</span>,</span><br><span class="line">        <span class="string">"pages"</span>: <span class="string">"monthly"</span>,</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机跳转到某日志</span></span><br><span class="line">RANDOM = <span class="string">'random.html'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 相关文章</span></span><br><span class="line">RELATED_POSTS_MAX = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>修改完后执行 <code>make html</code> 即可更新插件。</p>
+<h3 id="使用静态文件和静态目录"><a href="#使用静态文件和静态目录" class="headerlink" title="使用静态文件和静态目录"></a>使用静态文件和静态目录</h3><p>在 pelicanconf.py 里添加 <code>FILES_TO_COPY</code> 项就可以在每次生成html的时候把指定目录下的文件拷贝到 output 目录下。</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FILES_TO_COPY = (</span><br><span class="line">    (<span class="string">"extra/robots.txt"</span>, <span class="string">"robots.txt"</span>),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>上面的配置文件是指把 <code>extra/robots.txt</code> 文件拷贝到 <code>output/robots.txt</code> 。</p>
+<p>在 pelicanconf.py 里添加 <code>STATIC_PATHS</code> 项就可以吧指定的文件夹拷贝到 output 目录下，如果Blog里有图片，这种方法可以很方便的移动存放图片的目录。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STATIC_PATHS = [<span class="string">u"img"</span>]</span><br></pre></td></tr></table></figure>
+<p>上面的配置文件是指把 img 目录拷贝到 <code>output/static/</code> 下。</p>
+<h2 id="遇到的一些问题"><a href="#遇到的一些问题" class="headerlink" title="遇到的一些问题"></a>遇到的一些问题</h2><h3 id="DISQUS无法载入"><a href="#DISQUS无法载入" class="headerlink" title="DISQUS无法载入"></a>DISQUS无法载入</h3><p>上传到Web服务器后，评论插件DISQUS无法载入，报以下错误信息:</p>
+<blockquote>
+<p>We were unable to load Disqus. If you are a moderator please see our troubleshooting guide.</p>
+</blockquote>
+<p>解决办法是设置文件 pelicanconf.py 中的 <code>SITEURL</code> 不能为空，设置好站点URL即可。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blog/" rel="tag">#blog</a>
+          
+            <a href="/tags/pelican/" rel="tag">#pelican</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/popclip/" rel="prev" title="选中的进化">
+                选中的进化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Chi Zhang" />
+          <p class="site-author-name" itemprop="name">Chi Zhang</p>
+          <p class="site-description motion-element" itemprop="description">hehehe</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/akenzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/akenzc" target="_blank" title="Twiter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Twiter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是静态Blog"><span class="nav-number">1.</span> <span class="nav-text">什么是静态Blog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态Blog生成工具的好处："><span class="nav-number">2.</span> <span class="nav-text">静态Blog生成工具的好处：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择Pelican"><span class="nav-number">3.</span> <span class="nav-text">为什么选择Pelican</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Pelican"><span class="nav-number">3.1.</span> <span class="nav-text">安装Pelican</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从-Github-克隆最新代码安装-Pelican"><span class="nav-number">3.2.</span> <span class="nav-text">从 Github 克隆最新代码安装 Pelican</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建Blog"><span class="nav-number">3.3.</span> <span class="nav-text">新建Blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建文章"><span class="nav-number">3.4.</span> <span class="nav-text">新建文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成Blog"><span class="nav-number">3.5.</span> <span class="nav-text">生成Blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Github来托管Blog"><span class="nav-number">3.6.</span> <span class="nav-text">使用Github来托管Blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几点注意："><span class="nav-number">3.7.</span> <span class="nav-text">几点注意：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进一步的设置"><span class="nav-number">4.</span> <span class="nav-text">进一步的设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更换主题"><span class="nav-number">4.1.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用插件"><span class="nav-number">4.2.</span> <span class="nav-text">使用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用静态文件和静态目录"><span class="nav-number">4.3.</span> <span class="nav-text">使用静态文件和静态目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的一些问题"><span class="nav-number">5.</span> <span class="nav-text">遇到的一些问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DISQUS无法载入"><span class="nav-number">5.1.</span> <span class="nav-text">DISQUS无法载入</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2010 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chi Zhang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'akenblog';
+      var disqus_identifier = 'post/how-to-build-a-blog-with-pelican/';
+      var disqus_title = "使用Pelican搭建Blog";
+      var disqus_url = 'http://akenzc.com/post/how-to-build-a-blog-with-pelican/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7SW0u1Q3jqgcfJE6KvrmJi5J-gzGzoHsz", "t1a0dX3tIIYOyRL1EI6vhh1v");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
